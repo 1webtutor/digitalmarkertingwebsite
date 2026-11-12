@@ -6,6 +6,14 @@ export const metadata: Metadata = {
   title: 'About Agency — The Vyora Philosophy & Growth Architecture',
   description:
     'Learn how Vyora Digital inverts the broken traditional marketing model with sub-second infrastructure, first-party attribution, and month-to-month performance retainers.',
+  alternates: {
+    canonical: 'https://vyoradigital.com/about/',
+  },
+  openGraph: {
+    title: 'About Agency — The Vyora Philosophy & Growth Architecture',
+    description: 'Learn how Vyora Digital inverts the broken traditional marketing model with sub-second infrastructure and first-party attribution.',
+    url: 'https://vyoradigital.com/about/',
+  },
 };
 
 export default function AboutPage() {

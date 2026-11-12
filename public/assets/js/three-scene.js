@@ -43,12 +43,12 @@
       return;
     }
 
+    const isMobile = window.innerWidth < 768;
     renderer.setSize(width, height);
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, window.innerWidth < 768 ? 1.5 : 2));
+    renderer.setPixelRatio(isMobile ? 1.0 : Math.min(window.devicePixelRatio, 1.75));
 
     // 3. 3D Particle Constellation Wave (Optimized for 90+ PageSpeed & 60fps)
-    const isMobile = window.innerWidth < 768;
-    const PARTICLE_COUNT = isMobile ? 260 : 1200;
+    const PARTICLE_COUNT = isMobile ? 120 : 850;
     const geometry = new THREE.BufferGeometry();
     const positions = new Float32Array(PARTICLE_COUNT * 3);
     const colors = new Float32Array(PARTICLE_COUNT * 3);

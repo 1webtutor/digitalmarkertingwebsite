@@ -1,10 +1,19 @@
 import React from 'react';
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import SidebarLeadForm from '@/components/SidebarLeadForm';
 
 export const metadata: Metadata = {
   title: 'Novaderm Aesthetic Clinic Case Study — 185+ Monthly Patients (-62% CAC)',
   description: 'How Vyora Digital scaled Novaderm Aesthetic Clinic to 185+ monthly patients with Google Search Ads, Google Maps 3-Pack, and WhatsApp AI bot.',
+  alternates: {
+    canonical: 'https://vyoradigital.com/case-studies/aesthetic-clinic/',
+  },
+  openGraph: {
+    title: 'Novaderm Aesthetic Clinic Case Study — Vyora Digital',
+    description: 'How Vyora Digital scaled Novaderm Aesthetic Clinic to 185+ monthly patients with Google Search Ads, Google Maps 3-Pack, and WhatsApp AI bot.',
+    url: 'https://vyoradigital.com/case-studies/aesthetic-clinic/',
+  },
 };
 
 export default function AestheticClinicCaseStudy() {
@@ -156,30 +165,15 @@ export default function AestheticClinicCaseStudy() {
 
           {/* Sidebar */}
           <aside className="subpage-sidebar">
-            <div className="sidebar-card">
-              <div className="eyebrow" style={{ color: 'var(--c-metallic-gold)' }}>Clinic Strategy</div>
-              <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '20px', fontWeight: 800, marginBottom: '12px' }}>Fill Your Consultation Calendar</h3>
-              <p style={{ fontSize: '13.5px', color: 'var(--text-muted)', lineHeight: 1.55, marginBottom: '20px' }}>
-                Request a 30-minute healthcare growth audit. We will evaluate your local Google Maps rank and front-desk conversion speed.
-              </p>
-              <form>
-                <div className="form-group">
-                  <label className="form-label" htmlFor="sbName">Doctor / Manager Name</label>
-                  <input className="form-input" id="sbName" type="text" required placeholder="e.g. Dr. Ananya Kapoor" />
-                </div>
-                <div className="form-group">
-                  <label className="form-label" htmlFor="sbPhone">Phone / WhatsApp</label>
-                  <input className="form-input" id="sbPhone" type="tel" required placeholder="+91 89255 02557" />
-                </div>
-                <div className="form-group">
-                  <label className="form-label" htmlFor="sbClinic">Clinic Specialty</label>
-                  <input className="form-input" id="sbClinic" type="text" placeholder="e.g. Dermatology, Dental, Cosmetic" />
-                </div>
-                <button className="btn" type="submit" style={{ width: '100%', justifyContent: 'center' }}>
-                  <span>Schedule Clinic Audit</span>
-                </button>
-              </form>
-            </div>
+            <SidebarLeadForm
+              title="Fill Your Consultation Calendar"
+              subtitle="Request a 30-minute healthcare growth audit. We will evaluate your local Google Maps rank and front-desk conversion speed."
+              serviceDefault="Aesthetic Clinic Growth Audit"
+              customFieldLabel="Clinic Specialty"
+              customFieldPlaceholder="e.g. Dermatology, Dental, Cosmetic"
+              btnText="Schedule Clinic Audit"
+              sourcePage="Aesthetic Clinic Case Study"
+            />
 
             {/* Salem Headquarters Luxury Card */}
             <div className="sidebar-card" style={{ background: '#FFFFFF', border: '2px solid rgba(212,175,55,0.35)', borderRadius: '20px', padding: '28px', boxShadow: '0 12px 30px -8px rgba(0,0,0,0.06)' }}>

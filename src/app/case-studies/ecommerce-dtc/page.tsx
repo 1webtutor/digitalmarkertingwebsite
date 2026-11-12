@@ -5,6 +5,14 @@ import Link from 'next/link';
 export const metadata: Metadata = {
   title: 'Zenith Living DTC Case Study — Scaled 10.6x to ₹48L/Month with 4.8x ROAS',
   description: 'How Vyora Digital scaled Zenith Living from ₹4.5L to ₹48L/month in 90 days with rapid video creative testing, 1-click checkout funnels, and WhatsApp cart recovery.',
+  alternates: {
+    canonical: 'https://vyoradigital.com/case-studies/ecommerce-dtc/',
+  },
+  openGraph: {
+    title: 'Zenith Living DTC Case Study — Vyora Digital',
+    description: 'How Vyora Digital scaled Zenith Living from ₹4.5L to ₹48L/month in 90 days with rapid video creative testing and 1-click checkout funnels.',
+    url: 'https://vyoradigital.com/case-studies/ecommerce-dtc/',
+  },
 };
 
 export default function EcommerceCaseStudy() {

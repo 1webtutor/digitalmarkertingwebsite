@@ -5,6 +5,14 @@ import Link from 'next/link';
 export const metadata: Metadata = {
   title: 'Our 5-Stage Growth Framework — The Vyora Architecture',
   description: 'Discover how Vyora Digital engineers repeatable, scalable customer acquisition systems using our proprietary 5-stage performance framework.',
+  alternates: {
+    canonical: 'https://vyoradigital.com/framework/',
+  },
+  openGraph: {
+    title: 'Our 5-Stage Growth Framework — Vyora Digital',
+    description: 'Discover how Vyora Digital engineers repeatable, scalable customer acquisition systems using our proprietary 5-stage performance framework.',
+    url: 'https://vyoradigital.com/framework/',
+  },
 };
 
 export default function FrameworkPage() {

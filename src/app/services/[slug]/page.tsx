@@ -203,9 +203,26 @@ export function generateStaticParams() {
 export function generateMetadata({ params }: { params: { slug: string } }): Metadata {
   const svc = servicesRecord[params.slug];
   if (!svc) return { title: 'Service Not Found' };
+  const url = `https://vyoradigital.com/services/${params.slug}/`;
   return {
     title: `${svc.title} — Vyora Digital`,
     description: svc.desc,
+    alternates: {
+      canonical: url,
+    },
+    openGraph: {
+      title: `${svc.title} — Vyora Digital`,
+      description: svc.desc,
+      url: url,
+      type: 'article',
+      images: ['/assets/images/case-study-meta-realestate.svg'],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: `${svc.title} — Vyora Digital`,
+      description: svc.desc,
+      images: ['/assets/images/case-study-meta-realestate.svg'],
+    },
   };
 }
 
@@ -213,8 +230,57 @@ export default function ServiceDetailPage({ params }: { params: { slug: string }
   const svc = servicesRecord[params.slug];
   if (!svc) notFound();
 
+  const serviceUrl = `https://vyoradigital.com/services/${params.slug}/`;
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@graph': [
+              {
+                '@type': 'Service',
+                '@id': `${serviceUrl}#service`,
+                name: svc.title,
+                serviceType: svc.eyebrow,
+                description: svc.desc,
+                provider: {
+                  '@type': 'MarketingAgency',
+                  name: 'Vyora Digital',
+                  telephone: '+91 89255 02557',
+                  url: 'https://vyoradigital.com/',
+                },
+                areaServed: ['Salem', 'Tamil Nadu', 'India', 'Global'],
+              },
+              {
+                '@type': 'BreadcrumbList',
+                itemListElement: [
+                  {
+                    '@type': 'ListItem',
+                    position: 1,
+                    name: 'Home',
+                    item: 'https://vyoradigital.com/',
+                  },
+                  {
+                    '@type': 'ListItem',
+                    position: 2,
+                    name: 'Services',
+                    item: 'https://vyoradigital.com/services/',
+                  },
+                  {
+                    '@type': 'ListItem',
+                    position: 3,
+                    name: svc.title,
+                    item: serviceUrl,
+                  },
+                ],
+              },
+            ],
+          }),
+        }}
+      />
       <section className="subpage-hero">
         <div className="wrap">
           <div className="breadcrumb">

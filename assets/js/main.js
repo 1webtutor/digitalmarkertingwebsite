@@ -237,18 +237,94 @@ document.addEventListener('DOMContentLoaded', () => {
   // 8. FORMS SUBMISSION HANDLERS
   // ==========================================================================
   // ==========================================================================
-  // LEAD DISPATCHER: GOOGLE SHEET (1kZpBSVbwHqxZuQpNBDKg4Eyg8Q3n4-GScuAa7iIgsVc) + EMAIL (getupramesh@gmail.com) + WHATSAPP
+  // ==========================================================================
+  // LEAD DISPATCHER: GOOGLE SHEET (1kZpBSVbwHqxZuQpNBDKg4Eyg8Q3n4-GScuAa7iIgsVc) + EMAIL (getupramesh@gmail.com) + POPUP MODAL
   // ==========================================================================
   const GOOGLE_SHEET_WEBAPP_URL = window.VYORA_LEAD_ENDPOINT || '';
+  const NOTIFICATION_EMAIL = 'getupramesh@gmail.com';
 
-  function dispatchLead(payload, whatsappText) {
-    // 1. Asynchronously send to Next.js API / Google Sheet Web App
+  function showSuccessPopup(payload) {
+    let popup = document.getElementById('leadSuccessPopup');
+    if (!popup) {
+      popup = document.createElement('div');
+      popup.id = 'leadSuccessPopup';
+      popup.className = 'modal-overlay';
+      popup.setAttribute('role', 'dialog');
+      popup.setAttribute('aria-modal', 'true');
+      popup.style.cssText = 'position:fixed;inset:0;z-index:100000;background:rgba(8,9,12,0.72);backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:center;padding:20px;';
+      document.body.appendChild(popup);
+    }
+
+    const waText = encodeURIComponent(
+      `Hi Vyora Digital team, I submitted my details on your website.\nName: ${payload.name || ''}\nPhone: ${payload.phone || ''}${payload.service ? `\nRequirement: ${payload.service}` : ''}`
+    );
+
+    popup.innerHTML = `
+      <div class="modal-dialog" style="background:#FFFFFF;border-radius:24px;border:2px solid var(--c-metallic-gold);box-shadow:0 24px 60px rgba(0,0,0,0.2), 0 0 40px rgba(212,175,55,0.2);max-width:500px;width:100%;padding:40px 32px;text-align:center;position:relative;">
+        <button type="button" class="close-success-btn" style="position:absolute;top:16px;right:16px;width:36px;height:36px;border-radius:50%;border:1px solid var(--border-card);background:var(--bg-body,#FAF8F5);font-size:20px;cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--text-muted);">&times;</button>
+        <div style="width:76px;height:76px;margin:0 auto 20px;border-radius:50%;background:linear-gradient(135deg,rgba(212,175,55,0.18),rgba(16,185,129,0.18));border:2px solid #10B981;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 24px rgba(16,185,129,0.25);">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <div class="eyebrow" style="color:var(--c-metallic-gold-dark);margin-bottom:8px;">✦ Consultation Request Received ✦</div>
+        <h3 style="font-family:var(--font-heading);font-size:26px;font-weight:800;color:var(--text-main);margin-bottom:12px;">Details Submitted Successfully!</h3>
+        <p style="font-size:15px;color:var(--text-body);line-height:1.65;margin-bottom:24px;">Thank you for reaching out to <strong style="color:var(--text-main)">Vyora Digital</strong>. We have received your details and our growth director will contact you shortly.</p>
+        <div style="background:var(--bg-body,#FAF8F5);border:1.5px solid var(--border-card);border-radius:16px;padding:16px 20px;text-align:left;margin-bottom:24px;font-size:14px;">
+          ${payload.name ? `<div style="display:flex;justify-content:space-between;margin-bottom:8px;"><span style="color:var(--text-muted);">Name:</span><strong style="color:var(--text-main);">${payload.name}</strong></div>` : ''}
+          ${payload.phone ? `<div style="display:flex;justify-content:space-between;margin-bottom:8px;"><span style="color:var(--text-muted);">Contact:</span><strong style="color:var(--text-main);">${payload.phone}</strong></div>` : ''}
+          ${payload.service ? `<div style="display:flex;justify-content:space-between;"><span style="color:var(--text-muted);">Requirement:</span><strong style="color:var(--c-metallic-gold-dark);">${payload.service}</strong></div>` : ''}
+        </div>
+        <div style="display:flex;flex-direction:column;gap:10px;">
+          <a href="https://wa.me/918925502557?text=${waText}" target="_blank" rel="noopener noreferrer" class="btn" style="width:100%;justify-content:center;min-height:48px;font-size:14.5px;">
+            <span>Connect on WhatsApp (+91 89255 02557)</span>
+          </a>
+          <button type="button" class="btn-ghost close-success-btn" style="width:100%;justify-content:center;min-height:44px;font-size:14px;border-radius:12px;border:1.5px solid var(--border-card);background:transparent;cursor:pointer;font-weight:700;">Close Window</button>
+        </div>
+        <div style="margin-top:18px;font-size:12px;color:var(--text-muted);">Salem Headquarters · Krishna Nagar, Mamamgam, Salem - 636302.</div>
+      </div>
+    `;
+
+    popup.classList.add('active');
+    document.body.style.overflow = 'hidden';
+
+    popup.querySelectorAll('.close-success-btn').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        popup.classList.remove('active');
+        document.body.style.overflow = '';
+      });
+    });
+
+    popup.addEventListener('click', (e) => {
+      if (e.target === popup) {
+        popup.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+    });
+  }
+
+  function dispatchLead(payload) {
+    // 1. Asynchronously dispatch to Next.js API route
     try {
       if (window.fetch) {
         fetch('/api/lead', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(payload)
+        }).catch(() => {});
+
+        // 2. Direct client-side fail-safe email to getupramesh@gmail.com
+        fetch(`https://formsubmit.co/ajax/${NOTIFICATION_EMAIL}`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify({
+            _subject: `🔥 New Lead: ${payload.name || 'Anonymous'} (${payload.phone || 'No phone'}) — Vyora Digital`,
+            name: payload.name,
+            phone: payload.phone,
+            email: payload.email || 'Not provided',
+            service: payload.service || 'Growth Consultation',
+            budget: payload.budget || 'Not specified',
+            notes: payload.message || 'None',
+            source_url: window.location.href,
+          })
         }).catch(() => {});
 
         if (GOOGLE_SHEET_WEBAPP_URL) {
@@ -264,51 +340,57 @@ document.addEventListener('DOMContentLoaded', () => {
       console.warn('Lead background sync error', e);
     }
 
-    // 2. Immediate WhatsApp redirection with prefilled intent
-    const encoded = encodeURIComponent(whatsappText);
-    const waUrl = `https://wa.me/918925502557?text=${encoded}`;
-    setTimeout(() => {
-      window.open(waUrl, '_blank');
-    }, 500);
+    // 3. Show confirmation popup
+    showSuccessPopup(payload);
   }
 
-  // Contact Form Submission
-  const contactForm = document.getElementById('contactForm');
-  if (contactForm) {
-    contactForm.addEventListener('submit', (e) => {
+  // Contact Form Submission (Supports #contactForm and #contact-audit-form)
+  const contactForms = document.querySelectorAll('#contactForm, #contact-audit-form');
+  contactForms.forEach((cForm) => {
+    cForm.addEventListener('submit', (e) => {
       e.preventDefault();
-      const submitBtn = contactForm.querySelector('button[type="submit"]');
+      const submitBtn = cForm.querySelector('button[type="submit"]');
       const originalText = submitBtn ? submitBtn.innerHTML : 'Submit Request';
       if (submitBtn) {
         submitBtn.disabled = true;
-        submitBtn.innerHTML = `<span>Connecting to WhatsApp...</span>`;
+        submitBtn.innerHTML = `<span>Submitting Details...</span>`;
       }
 
-      const name = (document.getElementById('cName') || contactForm.querySelector('[name="name"]') || {}).value || '';
-      const phone = (document.getElementById('cPhone') || contactForm.querySelector('[name="phone"]') || {}).value || '';
-      const email = (document.getElementById('cEmail') || contactForm.querySelector('[name="email"]') || {}).value || '';
-      const service = (document.getElementById('cService') || contactForm.querySelector('[name="service"]') || {}).value || 'Comprehensive Growth Consultation';
-      const budget = (document.getElementById('cBudget') || contactForm.querySelector('[name="budget"]') || {}).value || '';
-      const message = (document.getElementById('cMessage') || contactForm.querySelector('[name="message"]') || {}).value || '';
+      const textInputs = cForm.querySelectorAll('input[type="text"]');
+      const telInput = cForm.querySelector('input[type="tel"]');
+      const emailInput = cForm.querySelector('input[type="email"]');
+      const selects = cForm.querySelectorAll('select');
+      const textarea = cForm.querySelector('textarea');
+
+      const name = (document.getElementById('cName') || textInputs[0] || {}).value || '';
+      const phone = (document.getElementById('cPhone') || telInput || {}).value || '';
+      const email = (document.getElementById('cEmail') || emailInput || {}).value || '';
+      const budget = (selects[0] || {}).value || '';
+      const service = (selects[1] || selects[0] || {}).value || 'Comprehensive Growth Consultation';
+      const message = (textarea || {}).value || '';
 
       const payload = {
         name, phone, email, service, budget, message,
         page: window.location.pathname || 'Contact Page'
       };
 
-      const waMsg = `Hi Vyora Digital team, I submitted an inquiry for ${service}.\nName: ${name}\nPhone: ${phone}\nEmail: ${email}\nBudget: ${budget}\nNotes: ${message}`;
+      dispatchLead(payload);
 
-      dispatchLead(payload, waMsg);
+      const successBox = document.getElementById('form-success-box');
+      if (successBox) {
+        successBox.style.display = 'block';
+        cForm.style.display = 'none';
+      }
 
       setTimeout(() => {
-        contactForm.reset();
+        cForm.reset();
         if (submitBtn) {
           submitBtn.disabled = false;
           submitBtn.innerHTML = originalText;
         }
-      }, 1000);
+      }, 800);
     });
-  }
+  });
 
   // Modal Booking Form Submission
   const modalForm = document.getElementById('modalBookingForm');
@@ -319,7 +401,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const originalText = submitBtn ? submitBtn.innerHTML : 'Confirm Discovery Call';
       if (submitBtn) {
         submitBtn.disabled = true;
-        submitBtn.innerHTML = `<span>Connecting to WhatsApp...</span>`;
+        submitBtn.innerHTML = `<span>Submitting Details...</span>`;
       }
 
       const name = (document.getElementById('modalName') || {}).value || '';
@@ -334,18 +416,16 @@ document.addEventListener('DOMContentLoaded', () => {
         page: window.location.pathname || 'Homepage'
       };
 
-      const waMsg = `Hi Vyora Digital team, I want to confirm our 30-min growth diagnostic call.\nName: ${name}\nPhone: ${phone}\nMonthly Ad Budget: ${budget}\nPage: ${window.location.pathname}`;
-
-      dispatchLead(payload, waMsg);
+      closeModal();
+      dispatchLead(payload);
 
       setTimeout(() => {
         modalForm.reset();
-        closeModal();
         if (submitBtn) {
           submitBtn.disabled = false;
           submitBtn.innerHTML = originalText;
         }
-      }, 1000);
+      }, 800);
     });
   }
 
@@ -358,7 +438,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const originalText = submitBtn ? submitBtn.innerHTML : 'Submit';
       if (submitBtn) {
         submitBtn.disabled = true;
-        submitBtn.innerHTML = `<span>Connecting to WhatsApp...</span>`;
+        submitBtn.innerHTML = `<span>Submitting Details...</span>`;
       }
 
       const nameInput = sForm.querySelector('input[type="text"]');
@@ -373,9 +453,7 @@ document.addEventListener('DOMContentLoaded', () => {
         page: window.location.pathname
       };
 
-      const waMsg = `Hi Vyora Digital team, I would like to request an audit for: ${payload.service}.\nName: ${name}\nPhone: ${phone}\nPage: ${window.location.pathname}`;
-
-      dispatchLead(payload, waMsg);
+      dispatchLead(payload);
 
       setTimeout(() => {
         sForm.reset();
@@ -383,7 +461,7 @@ document.addEventListener('DOMContentLoaded', () => {
           submitBtn.disabled = false;
           submitBtn.innerHTML = originalText;
         }
-      }, 1000);
+      }, 800);
     });
   });
 

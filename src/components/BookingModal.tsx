@@ -1,14 +1,15 @@
 'use client';
 
 import React, { useState } from 'react';
+import { submitLead } from '@/lib/leadDispatcher';
 
 export default function BookingModal() {
-  const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
     budget: '50k-150k',
-    objective: 'Meta/Google Ads Scaling'
+    objective: 'Meta/Google Ads Scaling',
   });
 
   const closeModal = () => {
@@ -19,38 +20,30 @@ export default function BookingModal() {
     }
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
+    setSubmitting(true);
 
-    // 1. Post lead to /api/lead and Google Sheets in background
     try {
-      fetch('/api/lead', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          name: formData.name,
-          phone: formData.phone,
-          budget: formData.budget,
-          service: formData.objective,
-          page: typeof window !== 'undefined' ? window.location.pathname : 'Homepage',
-          targetSheet: 'https://docs.google.com/spreadsheets/d/1kZpBSVbwHqxZuQpNBDKg4Eyg8Q3n4-GScuAa7iIgsVc/edit',
-          notificationEmail: 'getupramesh@gmail.com'
-        })
-      }).catch(() => {});
+      await submitLead({
+        name: formData.name,
+        phone: formData.phone,
+        budget: formData.budget,
+        service: formData.objective,
+        page: typeof window !== 'undefined' ? window.location.pathname : 'Homepage',
+      });
     } catch (err) {
-      console.warn('Lead dispatch error', err);
-    }
-
-    setTimeout(() => {
-      // 2. Forward to WhatsApp with pre-filled message
-      const text = encodeURIComponent(
-        `Hi Vyora Digital team, I want to claim a 30-min growth diagnostic call.\nName: ${formData.name}\nPhone: ${formData.phone}\nMonthly Budget: ${formData.budget}\nGoal: ${formData.objective}`
-      );
-      window.open(`https://wa.me/918925502557?text=${text}`, '_blank');
+      console.warn('Booking lead submission error:', err);
+    } finally {
+      setSubmitting(false);
       closeModal();
-      setSubmitted(false);
-    }, 800);
+      setFormData({
+        name: '',
+        phone: '',
+        budget: '50k-150k',
+        objective: 'Meta/Google Ads Scaling',
+      });
+    }
   };
 
   return (
@@ -63,58 +56,55 @@ export default function BookingModal() {
           No high-pressure sales pitch. We will dissect your current digital presence, identify low-hanging revenue leaks, and outline a custom acquisition blueprint.
         </p>
 
-        {submitted ? (
-          <div style={{ padding: '30px 20px', textAlign: 'center', background: 'rgba(16,185,129,0.08)', borderRadius: '14px', border: '1px solid #10B981', marginTop: '20px' }}>
-            <div style={{ fontSize: '32px', marginBottom: '10px' }}>✓</div>
-            <h4 style={{ fontSize: '18px', fontWeight: 800, color: '#10B981' }}>Booking Request Confirmed!</h4>
-            <p style={{ fontSize: '14px', color: 'var(--text-body)', marginTop: '6px' }}>Connecting directly with a Senior Growth Partner...</p>
+        <form onSubmit={handleSubmit} style={{ marginTop: '24px' }}>
+          <div className="form-group">
+            <label className="form-label" htmlFor="modalName">Full Name</label>
+            <input
+              className="form-input"
+              id="modalName"
+              type="text"
+              required
+              placeholder="e.g. Dr. Ramesh Kumar"
+              value={formData.name}
+              onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+            />
           </div>
-        ) : (
-          <form onSubmit={handleSubmit} style={{ marginTop: '24px' }}>
-            <div className="form-group">
-              <label className="form-label" htmlFor="modalName">Full Name</label>
-              <input
-                className="form-input"
-                id="modalName"
-                type="text"
-                required
-                placeholder="e.g. Dr. Ramesh Kumar"
-                value={formData.name}
-                onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-              />
-            </div>
-            <div className="form-group">
-              <label className="form-label" htmlFor="modalPhone">WhatsApp / Mobile Number</label>
-              <input
-                className="form-input"
-                id="modalPhone"
-                type="tel"
-                required
-                placeholder="+91 89255 02557"
-                value={formData.phone}
-                onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-              />
-            </div>
-            <div className="form-group">
-              <label className="form-label" htmlFor="modalBudget">Estimated Monthly Ad Spend</label>
-              <select
-                className="form-select"
-                id="modalBudget"
-                value={formData.budget}
-                onChange={(e) => setFormData({ ...formData, budget: e.target.value })}
-              >
-                <option value="under50k">₹25,000 – ₹50,000 / mo</option>
-                <option value="50k-150k">₹50,000 – ₹1,50,000 / mo</option>
-                <option value="150k-500k">₹1,50,000 – ₹5,00,000 / mo</option>
-                <option value="scale">₹5,00,000+ / mo (Enterprise Scale)</option>
-              </select>
-            </div>
-            <button className="btn" type="submit" style={{ width: '100%', justifyContent: 'center', marginTop: '10px' }}>
-              <span>Confirm Discovery Call</span>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-            </button>
-          </form>
-        )}
+          <div className="form-group">
+            <label className="form-label" htmlFor="modalPhone">WhatsApp / Mobile Number</label>
+            <input
+              className="form-input"
+              id="modalPhone"
+              type="tel"
+              required
+              placeholder="+91 89255 02557"
+              value={formData.phone}
+              onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+            />
+          </div>
+          <div className="form-group">
+            <label className="form-label" htmlFor="modalBudget">Estimated Monthly Ad Spend</label>
+            <select
+              className="form-select"
+              id="modalBudget"
+              value={formData.budget}
+              onChange={(e) => setFormData({ ...formData, budget: e.target.value })}
+            >
+              <option value="under50k">₹25,000 – ₹50,000 / mo</option>
+              <option value="50k-150k">₹50,000 – ₹1,50,000 / mo</option>
+              <option value="150k-500k">₹1,50,000 – ₹5,00,000 / mo</option>
+              <option value="scale">₹5,00,000+ / mo (Enterprise Scale)</option>
+            </select>
+          </div>
+          <button
+            className="btn"
+            type="submit"
+            disabled={submitting}
+            style={{ width: '100%', justifyContent: 'center', marginTop: '10px' }}
+          >
+            <span>{submitting ? 'Submitting Details...' : 'Confirm Discovery Call'}</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </button>
+        </form>
       </div>
     </div>
   );

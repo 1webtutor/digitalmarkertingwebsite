@@ -5,6 +5,14 @@ import Link from 'next/link';
 export const metadata: Metadata = {
   title: 'Client Reviews & Verified Ratings — 40+ Retained Partners',
   description: 'Read authentic client testimonials and verified reviews from real estate developers, medical clinic directors, and DTC brand founders who scale with Vyora Digital.',
+  alternates: {
+    canonical: 'https://vyoradigital.com/reviews/',
+  },
+  openGraph: {
+    title: 'Client Reviews & Verified Ratings — Vyora Digital',
+    description: 'Read authentic client testimonials and verified reviews from founders and marketing leaders who scale with Vyora Digital.',
+    url: 'https://vyoradigital.com/reviews/',
+  },
 };
 
 export default function ReviewsPage() {

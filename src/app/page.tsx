@@ -2,6 +2,8 @@
 
 import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
+import Script from 'next/script';
+import { submitLead } from '@/lib/leadDispatcher';
 
 export default function HomePage() {
   // Funnel Calculator State
@@ -9,6 +11,32 @@ export default function HomePage() {
   const [cpc, setCpc] = useState(25);
   const [cvr, setCvr] = useState(3.5);
   const [dealValue, setDealValue] = useState(45000);
+
+  // Fast-track Audit Bottom Form State
+  const [bottomName, setBottomName] = useState('');
+  const [bottomPhone, setBottomPhone] = useState('');
+  const [bottomBudget, setBottomBudget] = useState('₹50,000 – ₹1,50,000 / mo');
+  const [bottomSubmitting, setBottomSubmitting] = useState(false);
+
+  const handleBottomSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setBottomSubmitting(true);
+    try {
+      await submitLead({
+        name: bottomName,
+        phone: bottomPhone,
+        budget: bottomBudget,
+        service: '30-Minute Growth Teardown',
+        page: 'Homepage Teardown Form',
+      });
+      setBottomName('');
+      setBottomPhone('');
+    } catch (err) {
+      console.warn('Bottom form submit error:', err);
+    } finally {
+      setBottomSubmitting(false);
+    }
+  };
 
   // Calculations
   const clicks = Math.round(adSpend / cpc);
@@ -142,7 +170,7 @@ export default function HomePage() {
             <div className="hero-media-wrap">
               <div className="hero-media-inner">
                 <video autoPlay loop muted playsInline preload="none" poster="/assets/images/cosmic-poster.jpg" width={540} height={340}>
-                  <source src="/assets/video/cosmic-bg.mp4" type="video/mp4" />
+                  <source media="(min-width: 768px)" src="/assets/video/cosmic-bg.mp4" type="video/mp4" />
                   <img src="/assets/images/cosmic-poster.jpg" alt="Vyora Digital Portfolio Growth Showcase" width={540} height={340} fetchPriority="high" />
                 </video>
                 <div className="hero-media-overlay" aria-hidden="true" />
@@ -675,30 +703,56 @@ export default function HomePage() {
               </p>
             </div>
 
-            <form action="https://wa.me/918925502557" method="get" target="_blank">
+            <form onSubmit={handleBottomSubmit}>
               <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '18px', marginBottom: '20px' }}>
                 <div>
                   <label className="form-label" style={{ fontWeight: 700, marginBottom: '6px', display: 'block' }}>Full Name</label>
-                  <input type="text" required placeholder="e.g. Dr. Ananya Kapoor" className="form-input" style={{ width: '100%', padding: '12px 16px', borderRadius: '10px', border: '1.5px solid var(--border-card)' }} />
+                  <input
+                    type="text"
+                    required
+                    placeholder="e.g. Dr. Ananya Kapoor"
+                    className="form-input"
+                    style={{ width: '100%', padding: '12px 16px', borderRadius: '10px', border: '1.5px solid var(--border-card)' }}
+                    value={bottomName}
+                    onChange={(e) => setBottomName(e.target.value)}
+                  />
                 </div>
                 <div>
                   <label className="form-label" style={{ fontWeight: 700, marginBottom: '6px', display: 'block' }}>WhatsApp Number</label>
-                  <input type="tel" required placeholder="+91 89255 02557" className="form-input" style={{ width: '100%', padding: '12px 16px', borderRadius: '10px', border: '1.5px solid var(--border-card)' }} />
+                  <input
+                    type="tel"
+                    required
+                    placeholder="+91 89255 02557"
+                    className="form-input"
+                    style={{ width: '100%', padding: '12px 16px', borderRadius: '10px', border: '1.5px solid var(--border-card)' }}
+                    value={bottomPhone}
+                    onChange={(e) => setBottomPhone(e.target.value)}
+                  />
                 </div>
               </div>
 
               <div style={{ marginBottom: '24px' }}>
                 <label className="form-label" style={{ fontWeight: 700, marginBottom: '6px', display: 'block' }}>Current Monthly Ad Spend</label>
-                <select className="form-select" style={{ width: '100%', padding: '12px 16px', borderRadius: '10px', border: '1.5px solid var(--border-card)' }}>
-                  <option value="under50k">₹25,000 – ₹50,000 / mo</option>
-                  <option value="50k-150k" selected>₹50,000 – ₹1,50,000 / mo</option>
-                  <option value="150k-500k">₹1,50,000 – ₹5,00,000 / mo</option>
-                  <option value="scale">₹5,00,000+ / mo (Enterprise Scale)</option>
+                <select
+                  className="form-select"
+                  style={{ width: '100%', padding: '12px 16px', borderRadius: '10px', border: '1.5px solid var(--border-card)' }}
+                  value={bottomBudget}
+                  onChange={(e) => setBottomBudget(e.target.value)}
+                >
+                  <option value="₹25,000 – ₹50,000 / mo">₹25,000 – ₹50,000 / mo</option>
+                  <option value="₹50,000 – ₹1,50,000 / mo">₹50,000 – ₹1,50,000 / mo</option>
+                  <option value="₹1,50,000 – ₹5,00,000 / mo">₹1,50,000 – ₹5,00,000 / mo</option>
+                  <option value="₹5,00,000+ / mo (Enterprise Scale)">₹5,00,000+ / mo (Enterprise Scale)</option>
                 </select>
               </div>
 
-              <button type="submit" className="btn" style={{ width: '100%', justifyContent: 'center', minHeight: '52px', fontSize: '16px' }}>
-                <span>Lock In Discovery Call via WhatsApp</span>
+              <button
+                type="submit"
+                disabled={bottomSubmitting}
+                className="btn"
+                style={{ width: '100%', justifyContent: 'center', minHeight: '52px', fontSize: '16px' }}
+              >
+                <span>{bottomSubmitting ? 'Submitting Details...' : 'Lock In Discovery Call'}</span>
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
               </button>
             </form>
@@ -709,6 +763,16 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* High-Performance Lazy Loaded 3D Experience (Scoped strictly to Homepage) */}
+      <Script
+        src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"
+        strategy="lazyOnload"
+      />
+      <Script
+        src="/assets/js/three-scene.js"
+        strategy="lazyOnload"
+      />
     </>
   );
 }

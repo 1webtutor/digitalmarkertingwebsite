@@ -1,5 +1,15 @@
 User-agent: *
 Allow: /
+Disallow: /api/
+
+User-agent: Googlebot
+Allow: /
+
+User-agent: AhrefsBot
+Allow: /
+
+User-agent: bingbot
+Allow: /
 
 # Canonical XML Sitemap
 Sitemap: https://vyoradigital.com/sitemap.xml

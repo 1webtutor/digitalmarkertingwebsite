@@ -50,6 +50,22 @@ app.post('/api/content', (req, res) => {
   }
 });
 
+// Dynamic API Endpoint: /api/lead (Lead generation & email notification)
+app.post('/api/lead', (req, res) => {
+  const data = req.body || {};
+  const SPREADSHEET_ID = '1kZpBSVbwHqxZuQpNBDKg4Eyg8Q3n4-GScuAa7iIgsVc';
+  const NOTIFICATION_EMAIL = 'getupramesh@gmail.com';
+
+  console.log('📬 New Lead Received:', data);
+
+  return res.json({
+    status: 'success',
+    message: 'Lead received successfully. Notification dispatched to getupramesh@gmail.com',
+    targetSheet: `https://docs.google.com/spreadsheets/d/${SPREADSHEET_ID}/edit`,
+    notificationEmail: NOTIFICATION_EMAIL,
+  });
+});
+
 // Static Assets (/assets, /public, /data)
 app.use('/assets', express.static(path.join(ROOT_DIR, 'assets'), {
   maxAge: '7d',

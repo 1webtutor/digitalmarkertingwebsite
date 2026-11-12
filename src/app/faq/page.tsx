@@ -5,6 +5,14 @@ import Link from 'next/link';
 export const metadata: Metadata = {
   title: 'Agency FAQs — Honest Answers to Common Questions',
   description: 'Answers to the most frequently asked questions about working with Vyora Digital, our pricing, onboarding process, and performance guarantees.',
+  alternates: {
+    canonical: 'https://vyoradigital.com/faq/',
+  },
+  openGraph: {
+    title: 'Agency FAQs — Vyora Digital',
+    description: 'Straightforward answers regarding our client partnerships, technical infrastructure, and performance commitments.',
+    url: 'https://vyoradigital.com/faq/',
+  },
 };
 
 export default function FAQPage() {
@@ -33,6 +41,23 @@ export default function FAQPage() {
 
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'FAQPage',
+            mainEntity: faqs.map((f) => ({
+              '@type': 'Question',
+              name: f.q,
+              acceptedAnswer: {
+                '@type': 'Answer',
+                text: f.a,
+              },
+            })),
+          }),
+        }}
+      />
       <section className="subpage-hero">
         <div className="wrap">
           <div className="breadcrumb">

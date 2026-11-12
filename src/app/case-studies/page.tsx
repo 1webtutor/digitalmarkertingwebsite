@@ -6,6 +6,14 @@ export const metadata: Metadata = {
   title: 'Case Studies & Verified Transformations — Digital Marketing & Paid Media',
   description:
     'Explore real client case studies from Vyora Digital: +310% luxury real estate inquiries, -62% clinic patient CAC, and ₹48L/mo DTC e-commerce scale.',
+  alternates: {
+    canonical: 'https://vyoradigital.com/case-studies/',
+  },
+  openGraph: {
+    title: 'Case Studies & Verified Transformations — Vyora Digital',
+    description: 'Explore real client case studies from Vyora Digital: +310% luxury real estate inquiries, -62% clinic patient CAC, and ₹48L/mo DTC e-commerce scale.',
+    url: 'https://vyoradigital.com/case-studies/',
+  },
 };
 
 export default function CaseStudiesPage() {

@@ -5,6 +5,14 @@ import Link from 'next/link';
 export const metadata: Metadata = {
   title: 'All Growth Marketing Services — Meta Ads, Google Ads & AI Automation',
   description: 'Explore Vyora Digital full-funnel capabilities: Meta Ads, Google Ads, Local SEO Maps 3-Pack, High-Converting Web Funnels, Video Creatives, and 24/7 WhatsApp AI.',
+  alternates: {
+    canonical: 'https://vyoradigital.com/services/',
+  },
+  openGraph: {
+    title: 'All Growth Marketing Services — Meta Ads, Google Ads & AI Automation',
+    description: 'Explore Vyora Digital full-funnel capabilities: Meta Ads, Google Ads, Local SEO Maps 3-Pack, High-Converting Web Funnels, Video Creatives, and 24/7 WhatsApp AI.',
+    url: 'https://vyoradigital.com/services/',
+  },
 };
 
 export default function ServicesPage() {

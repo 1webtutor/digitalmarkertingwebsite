@@ -5,6 +5,9 @@ import Link from 'next/link';
 export const metadata: Metadata = {
   title: 'Refund & Performance Policy — Vyora Digital',
   description: 'Our transparent refund, cancellation, and service performance policy for digital growth retainers.',
+  alternates: {
+    canonical: 'https://vyoradigital.com/refund-policy/',
+  },
 };
 
 export default function RefundPolicyPage() {

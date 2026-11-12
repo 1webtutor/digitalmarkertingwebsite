@@ -2,28 +2,48 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
+import { submitLead } from '@/lib/leadDispatcher';
 
 export default function ContactPage() {
-  const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
   const [form, setForm] = useState({
     name: '',
     phone: '',
     email: '',
     url: '',
     budget: '50k-150k',
-    service: 'meta-ads',
+    service: 'High-ROAS Meta/Google Ads',
     message: '',
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
-    setTimeout(() => {
-      const msg = encodeURIComponent(
-        `Hi Vyora Digital team, I want to claim a free growth audit.\nName: ${form.name}\nPhone: ${form.phone}\nEmail: ${form.email}\nWebsite/Social: ${form.url}\nBudget: ${form.budget}\nService: ${form.service}\nNotes: ${form.message}`
-      );
-      window.open(`https://wa.me/918925502557?text=${msg}`, '_blank');
-    }, 800);
+    setSubmitting(true);
+
+    try {
+      await submitLead({
+        name: form.name,
+        phone: form.phone,
+        email: form.email,
+        service: form.service,
+        budget: form.budget,
+        message: `${form.url ? `URL: ${form.url} | ` : ''}${form.message || 'None'}`,
+        page: 'Contact Page',
+      });
+      setForm({
+        name: '',
+        phone: '',
+        email: '',
+        url: '',
+        budget: '50k-150k',
+        service: 'High-ROAS Meta/Google Ads',
+        message: '',
+      });
+    } catch (err) {
+      console.warn('Contact lead dispatch error:', err);
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
@@ -73,121 +93,116 @@ export default function ContactPage() {
               <div className="eyebrow" style={{ color: 'var(--c-metallic-gold)' }}>Fast Track Booking</div>
               <h2 style={{ fontSize: '26px', fontWeight: 800, marginBottom: '20px' }}>Schedule Your Free Growth Audit</h2>
 
-              {submitted ? (
-                <div style={{ padding: '36px 24px', textAlign: 'center', background: 'rgba(16,185,129,0.08)', borderRadius: '16px', border: '1px solid #10B981' }}>
-                  <div style={{ fontSize: '40px', marginBottom: '12px' }}>✓</div>
-                  <h3 style={{ fontSize: '22px', fontWeight: 800, color: '#10B981' }}>Audit Request Received</h3>
-                  <p style={{ fontSize: '15px', color: 'var(--text-body)', marginTop: '8px', lineHeight: 1.7 }}>
-                    Connecting directly to WhatsApp (+91 89255 02557). Our Senior Growth Director is reviewing your submission right now.
-                  </p>
-                </div>
-              ) : (
-                <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '18px' }}>
-                  <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '16px' }}>
-                    <div className="form-group">
-                      <label className="form-label" htmlFor="contactName">Your Name *</label>
-                      <input
-                        className="form-input"
-                        id="contactName"
-                        type="text"
-                        required
-                        placeholder="e.g. Rajiv Sharma"
-                        value={form.name}
-                        onChange={(e) => setForm({ ...form, name: e.target.value })}
-                      />
-                    </div>
-                    <div className="form-group">
-                      <label className="form-label" htmlFor="contactPhone">Phone / WhatsApp *</label>
-                      <input
-                        className="form-input"
-                        id="contactPhone"
-                        type="tel"
-                        required
-                        placeholder="+91 98765 43210"
-                        value={form.phone}
-                        onChange={(e) => setForm({ ...form, phone: e.target.value })}
-                      />
-                    </div>
-                  </div>
-
+              <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '18px' }}>
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '16px' }}>
                   <div className="form-group">
-                    <label className="form-label" htmlFor="contactEmail">Business Email *</label>
+                    <label className="form-label" htmlFor="contactName">Your Name *</label>
                     <input
                       className="form-input"
-                      id="contactEmail"
-                      type="email"
-                      required
-                      placeholder="name@yourcompany.com"
-                      value={form.email}
-                      onChange={(e) => setForm({ ...form, email: e.target.value })}
-                    />
-                  </div>
-
-                  <div className="form-group">
-                    <label className="form-label" htmlFor="contactUrl">Website / Instagram URL</label>
-                    <input
-                      className="form-input"
-                      id="contactUrl"
+                      id="contactName"
                       type="text"
-                      placeholder="https://yourbrand.com or @handle"
-                      value={form.url}
-                      onChange={(e) => setForm({ ...form, url: e.target.value })}
+                      required
+                      placeholder="e.g. Rajiv Sharma"
+                      value={form.name}
+                      onChange={(e) => setForm({ ...form, name: e.target.value })}
                     />
                   </div>
+                  <div className="form-group">
+                    <label className="form-label" htmlFor="contactPhone">Phone / WhatsApp *</label>
+                    <input
+                      className="form-input"
+                      id="contactPhone"
+                      type="tel"
+                      required
+                      placeholder="+91 89255 02557"
+                      value={form.phone}
+                      onChange={(e) => setForm({ ...form, phone: e.target.value })}
+                    />
+                  </div>
+                </div>
 
-                  <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '16px' }}>
-                    <div className="form-group">
-                      <label className="form-label" htmlFor="contactBudget">Monthly Ad Spend</label>
-                      <select
-                        className="form-select"
-                        id="contactBudget"
-                        value={form.budget}
-                        onChange={(e) => setForm({ ...form, budget: e.target.value })}
-                      >
-                        <option value="under50k">₹25,000 – ₹50,000 / mo</option>
-                        <option value="50k-150k">₹50,000 – ₹1.5 Lakhs / mo</option>
-                        <option value="150k-500k">₹1.5L – ₹5.0 Lakhs / mo</option>
-                        <option value="500k+">₹5.0 Lakhs+ / mo (Enterprise Scale)</option>
-                      </select>
-                    </div>
+                <div className="form-group">
+                  <label className="form-label" htmlFor="contactEmail">Business Email *</label>
+                  <input
+                    className="form-input"
+                    id="contactEmail"
+                    type="email"
+                    required
+                    placeholder="name@yourcompany.com"
+                    value={form.email}
+                    onChange={(e) => setForm({ ...form, email: e.target.value })}
+                  />
+                </div>
 
-                    <div className="form-group">
-                      <label className="form-label" htmlFor="contactService">Primary Growth Need</label>
-                      <select
-                        className="form-select"
-                        id="contactService"
-                        value={form.service}
-                        onChange={(e) => setForm({ ...form, service: e.target.value })}
-                      >
-                        <option value="meta-ads">High-ROAS Meta/Google Ads</option>
-                        <option value="funnels">Sub-Second Landing Pages</option>
-                        <option value="seo">Local Google Maps 3-Pack</option>
-                        <option value="crm">WhatsApp AI Booking Bot</option>
-                        <option value="full-engine">Complete Full-Funnel Engine</option>
-                      </select>
-                    </div>
+                <div className="form-group">
+                  <label className="form-label" htmlFor="contactUrl">Website / Instagram URL</label>
+                  <input
+                    className="form-input"
+                    id="contactUrl"
+                    type="text"
+                    placeholder="https://yourbrand.com or @handle"
+                    value={form.url}
+                    onChange={(e) => setForm({ ...form, url: e.target.value })}
+                  />
+                </div>
+
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '16px' }}>
+                  <div className="form-group">
+                    <label className="form-label" htmlFor="contactBudget">Monthly Ad Spend</label>
+                    <select
+                      className="form-select"
+                      id="contactBudget"
+                      value={form.budget}
+                      onChange={(e) => setForm({ ...form, budget: e.target.value })}
+                    >
+                      <option value="₹25,000 – ₹50,000 / mo">₹25,000 – ₹50,000 / mo</option>
+                      <option value="₹50,000 – ₹1.5 Lakhs / mo">₹50,000 – ₹1.5 Lakhs / mo</option>
+                      <option value="₹1.5L – ₹5.0 Lakhs / mo">₹1.5L – ₹5.0 Lakhs / mo</option>
+                      <option value="₹5.0 Lakhs+ / mo (Enterprise)">₹5.0 Lakhs+ / mo (Enterprise)</option>
+                    </select>
                   </div>
 
                   <div className="form-group">
-                    <label className="form-label" htmlFor="contactNotes">Current Bottleneck or Goal (Optional)</label>
-                    <textarea
-                      className="form-input"
-                      id="contactNotes"
-                      rows={3}
-                      placeholder="Tell us about your current CAC, conversion rate, or what you want to achieve..."
-                      value={form.message}
-                      onChange={(e) => setForm({ ...form, message: e.target.value })}
-                    />
+                    <label className="form-label" htmlFor="contactService">Primary Growth Need</label>
+                    <select
+                      className="form-select"
+                      id="contactService"
+                      value={form.service}
+                      onChange={(e) => setForm({ ...form, service: e.target.value })}
+                    >
+                      <option value="High-ROAS Meta/Google Ads">High-ROAS Meta/Google Ads</option>
+                      <option value="Sub-Second Landing Pages">Sub-Second Landing Pages</option>
+                      <option value="Local Google Maps 3-Pack">Local Google Maps 3-Pack</option>
+                      <option value="WhatsApp AI Booking Bot">WhatsApp AI Booking Bot</option>
+                      <option value="Complete Full-Funnel Engine">Complete Full-Funnel Engine</option>
+                    </select>
                   </div>
+                </div>
 
-                  <button className="btn btn-primary" type="submit" style={{ width: '100%', justifyContent: 'center', minHeight: '52px', fontSize: '15px' }}>
-                    <span>Claim Free 30-Minute Growth Audit ➔</span>
-                  </button>
-                  <p style={{ fontSize: '12px', color: 'var(--text-muted)', textAlign: 'center', margin: 0 }}>
-                    🔒 100% Confidential. Zero spam. We never share your data.
-                  </p>
-                </form>
-              )}
+                <div className="form-group">
+                  <label className="form-label" htmlFor="contactNotes">Current Bottleneck or Goal (Optional)</label>
+                  <textarea
+                    className="form-input"
+                    id="contactNotes"
+                    rows={3}
+                    placeholder="Tell us about your current CAC, conversion rate, or what you want to achieve..."
+                    value={form.message}
+                    onChange={(e) => setForm({ ...form, message: e.target.value })}
+                  />
+                </div>
+
+                <button
+                  className="btn btn-primary"
+                  type="submit"
+                  disabled={submitting}
+                  style={{ width: '100%', justifyContent: 'center', minHeight: '52px', fontSize: '15px' }}
+                >
+                  <span>{submitting ? 'Submitting Details...' : 'Claim Free 30-Minute Growth Audit ➔'}</span>
+                </button>
+                <p style={{ fontSize: '12px', color: 'var(--text-muted)', textAlign: 'center', margin: 0 }}>
+                  🔒 100% Confidential. Zero spam. We never share your data.
+                </p>
+              </form>
             </div>
 
             {/* Direct Contacts & Salem Headquarters */}

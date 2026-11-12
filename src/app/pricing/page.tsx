@@ -5,6 +5,14 @@ import Link from 'next/link';
 export const metadata: Metadata = {
   title: 'Growth Retainers & Pricing — Zero Lock-In Handcuffs',
   description: 'Transparent monthly marketing retainers for ambitious businesses. Month-to-month flexibility, zero lock-in contracts, and 100% asset ownership.',
+  alternates: {
+    canonical: 'https://vyoradigital.com/pricing/',
+  },
+  openGraph: {
+    title: 'Growth Retainers & Pricing — Vyora Digital',
+    description: 'Transparent monthly marketing retainers for ambitious businesses. Month-to-month flexibility, zero lock-in contracts.',
+    url: 'https://vyoradigital.com/pricing/',
+  },
 };
 
 export default function PricingPage() {

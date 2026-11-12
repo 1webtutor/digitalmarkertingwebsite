@@ -5,6 +5,9 @@ import Link from 'next/link';
 export const metadata: Metadata = {
   title: 'Terms of Service — Vyora Digital',
   description: 'Terms of Service governing digital marketing, ad management, and funnel engineering retainers with Vyora Digital.',
+  alternates: {
+    canonical: 'https://vyoradigital.com/terms/',
+  },
 };
 
 export default function TermsPage() {

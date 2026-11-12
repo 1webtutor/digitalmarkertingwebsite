@@ -5,6 +5,9 @@ import Link from 'next/link';
 export const metadata: Metadata = {
   title: 'Privacy Policy — Vyora Digital',
   description: 'Privacy Policy and data governance commitments for vyoradigital.com and its performance marketing services.',
+  alternates: {
+    canonical: 'https://vyoradigital.com/privacy/',
+  },
 };
 
 export default function PrivacyPage() {
