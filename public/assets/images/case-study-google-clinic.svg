@@ -1,140 +1,168 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="100%" height="100%" style="background:#0D1117; font-family:'Outfit',-apple-system,sans-serif;">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 520" width="100%" height="100%">
   <defs>
-    <linearGradient id="clinicGold" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#F3E5AB"/>
+    <!-- Background Gradients -->
+    <linearGradient id="clinicBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#08141B"/>
+      <stop offset="50%" stop-color="#0E232B"/>
+      <stop offset="100%" stop-color="#060F14"/>
+    </linearGradient>
+
+    <!-- Clinic Emerald Gradients -->
+    <linearGradient id="emeraldTextGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#A7F3D0"/>
+      <stop offset="50%" stop-color="#10B981"/>
+      <stop offset="100%" stop-color="#059669"/>
+    </linearGradient>
+
+    <linearGradient id="goldTextGrad2" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#FFF2B2"/>
       <stop offset="50%" stop-color="#D4AF37"/>
       <stop offset="100%" stop-color="#AA771C"/>
     </linearGradient>
-    <linearGradient id="googleBlue" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#2563EB"/>
-      <stop offset="100%" stop-color="#60A5FA"/>
+
+    <linearGradient id="cardGradClinic" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="rgba(255,255,255,0.08)"/>
+      <stop offset="100%" stop-color="rgba(255,255,255,0.02)"/>
     </linearGradient>
-    <linearGradient id="clinicGreenFill" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" stop-color="#10B981" stop-opacity="0.35"/>
+
+    <linearGradient id="clinicCurve" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#06B6D4"/>
+      <stop offset="50%" stop-color="#10B981"/>
+      <stop offset="100%" stop-color="#34D399"/>
+    </linearGradient>
+
+    <linearGradient id="clinicArea" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#10B981" stop-opacity="0.32"/>
       <stop offset="100%" stop-color="#10B981" stop-opacity="0.0"/>
     </linearGradient>
+
+    <filter id="clinicGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
   </defs>
 
-  <!-- Frame -->
-  <rect x="0" y="0" width="800" height="500" fill="#0A0D14"/>
-  <rect x="0" y="0" width="800" height="42" fill="#141923" stroke="#222A38" stroke-width="1"/>
-  <circle cx="24" cy="21" r="5.5" fill="#EF4444"/>
-  <circle cx="42" cy="21" r="5.5" fill="#F59E0B"/>
-  <circle cx="60" cy="21" r="5.5" fill="#10B981"/>
+  <!-- Clean Canvas Base -->
+  <rect width="800" height="520" rx="16" fill="url(#clinicBg)"/>
 
-  <text x="82" y="25" fill="#94A3B8" font-size="12" font-weight="600" letter-spacing="0.5">Google Ads &amp; Maps 3-Pack · Novaderm Aesthetic Clinic Patient Acquisition</text>
-  <rect x="650" y="10" width="130" height="22" rx="11" fill="rgba(37,99,235,0.18)" stroke="#3B82F6" stroke-width="1"/>
-  <text x="662" y="25" fill="#60A5FA" font-size="11" font-weight="700">★ #1 GOOGLE RANK</text>
-
-  <!-- Metric KPI Cards Row -->
-  <g transform="translate(24, 60)">
-    <!-- KPI 1 -->
-    <rect x="0" y="0" width="176" height="84" rx="10" fill="#161C28" stroke="#263147" stroke-width="1"/>
-    <text x="16" y="26" fill="#94A3B8" font-size="11" font-weight="600" text-transform="uppercase" letter-spacing="0.5">Monthly Consultations</text>
-    <text x="16" y="58" fill="#10B981" font-size="24" font-weight="800">185+ / mo</text>
-    <text x="16" y="74" fill="#10B981" font-size="11" font-weight="700">↑ 380% from 38/mo</text>
-
-    <!-- KPI 2 -->
-    <rect x="192" y="0" width="176" height="84" rx="10" fill="#161C28" stroke="#263147" stroke-width="1"/>
-    <text x="208" y="26" fill="#94A3B8" font-size="11" font-weight="600" text-transform="uppercase" letter-spacing="0.5">Cost Per Patient (CAC)</text>
-    <text x="208" y="58" fill="url(#clinicGold)" font-size="24" font-weight="800">-62.4%</text>
-    <text x="208" y="74" fill="#10B981" font-size="11" font-weight="700">₹420 per scheduled patient</text>
-
-    <!-- KPI 3 -->
-    <rect x="384" y="0" width="176" height="84" rx="10" fill="#161C28" stroke="#263147" stroke-width="1"/>
-    <text x="400" y="26" fill="#94A3B8" font-size="11" font-weight="600" text-transform="uppercase" letter-spacing="0.5">Landing Page Speed</text>
-    <text x="400" y="58" fill="#FFFFFF" font-size="24" font-weight="800">0.58s</text>
-    <text x="400" y="74" fill="#10B981" font-size="11" font-weight="700">100/100 Core Web Vitals</text>
-
-    <!-- KPI 4 -->
-    <rect x="576" y="0" width="176" height="84" rx="10" fill="#161C28" stroke="#263147" stroke-width="1"/>
-    <text x="592" y="26" fill="#94A3B8" font-size="11" font-weight="600" text-transform="uppercase" letter-spacing="0.5">Local Maps 3-Pack</text>
-    <text x="592" y="58" fill="#60A5FA" font-size="24" font-weight="800">#1 Spot</text>
-    <text x="592" y="74" fill="#10B981" font-size="11" font-weight="700">Across 18 Local Keywords</text>
+  <!-- Subtle Medical Crosshair & Radial Grid -->
+  <g stroke="rgba(16,185,129,0.07)" stroke-width="1">
+    <line x1="40" y1="0" x2="40" y2="520"/>
+    <line x1="200" y1="0" x2="200" y2="520"/>
+    <line x1="400" y1="0" x2="400" y2="520"/>
+    <line x1="600" y1="0" x2="600" y2="520"/>
+    <line x1="760" y1="0" x2="760" y2="520"/>
+    <line x1="0" y1="120" x2="800" y2="120"/>
+    <line x1="0" y1="260" x2="800" y2="260"/>
+    <line x1="0" y1="400" x2="800" y2="400"/>
   </g>
 
-  <!-- Booking Growth Chart Area -->
-  <g transform="translate(24, 160)">
-    <rect x="0" y="0" width="460" height="180" rx="10" fill="#161C28" stroke="#263147" stroke-width="1"/>
-    <text x="18" y="28" fill="#FFFFFF" font-size="14" font-weight="700">Verified Patient Booking Volume (Monthly Growth)</text>
-    <text x="330" y="28" fill="#10B981" font-size="12" font-weight="700">● 6-Month Scale</text>
-    
-    <!-- Grid Lines -->
-    <line x1="20" y1="55" x2="440" y2="55" stroke="#263147" stroke-dasharray="3,3"/>
-    <line x1="20" y1="95" x2="440" y2="95" stroke="#263147" stroke-dasharray="3,3"/>
-    <line x1="20" y1="135" x2="440" y2="135" stroke="#263147" stroke-dasharray="3,3"/>
+  <!-- Ambient Light Orbs -->
+  <circle cx="720" cy="120" r="150" fill="#10B981" opacity="0.09" filter="url(#clinicGlow)"/>
+  <circle cx="100" cy="400" r="140" fill="#06B6D4" opacity="0.06" filter="url(#clinicGlow)"/>
 
-    <!-- Fill -->
-    <path d="M 25 145 Q 85 140 135 120 T 235 90 T 335 60 T 435 38 L 435 160 L 25 160 Z" fill="url(#clinicGreenFill)"/>
-    <!-- Line -->
-    <path d="M 25 145 Q 85 140 135 120 T 235 90 T 335 60 T 435 38" fill="none" stroke="#10B981" stroke-width="3" stroke-linecap="round"/>
+  <!-- Clean Header Bar -->
+  <g transform="translate(40, 36)">
+    <!-- Category Badge -->
+    <rect x="0" y="0" width="168" height="28" rx="14" fill="rgba(16,185,129,0.14)" stroke="rgba(16,185,129,0.4)" stroke-width="1"/>
+    <circle cx="14" cy="14" r="4" fill="#10B981"/>
+    <text x="26" y="18" fill="#A7F3D0" font-family="'Outfit', sans-serif" font-size="11" font-weight="700" letter-spacing="1">HEALTHCARE &amp; CLINIC</text>
 
-    <!-- Points -->
-    <circle cx="25" cy="145" r="4" fill="#10B981"/>
-    <circle cx="135" cy="120" r="4" fill="#10B981"/>
-    <circle cx="235" cy="90" r="4" fill="#10B981"/>
-    <circle cx="335" cy="60" r="4" fill="#10B981"/>
-    <circle cx="435" cy="38" r="5" fill="#FFF" stroke="#10B981" stroke-width="2"/>
+    <!-- Google 3-Pack Verified Badge -->
+    <rect x="180" y="0" width="170" height="28" rx="14" fill="rgba(212,175,55,0.12)" stroke="rgba(212,175,55,0.4)" stroke-width="1"/>
+    <path d="M194 14l3 3 6-6" stroke="#D4AF37" stroke-width="2" fill="none" stroke-linecap="round"/>
+    <text x="210" y="18" fill="#F3E5AB" font-family="'Outfit', sans-serif" font-size="11" font-weight="700">GOOGLE 3-PACK #1 RANK</text>
 
-    <!-- Labels -->
-    <text x="25" y="172" fill="#64748B" font-size="10">Month 1 (38)</text>
-    <text x="135" y="172" fill="#64748B" font-size="10">Month 2 (64)</text>
-    <text x="235" y="172" fill="#64748B" font-size="10">Month 4 (115)</text>
-    <text x="335" y="172" fill="#64748B" font-size="10">Month 5 (152)</text>
-    <text x="395" y="172" fill="#10B981" font-weight="700" font-size="10">Month 6 (185+)</text>
+    <!-- Time Period -->
+    <text x="720" y="18" text-anchor="end" fill="#64748B" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="600">6 Months Organic + PPC Scale</text>
   </g>
 
-  <!-- Local SEO & Search Intent Block -->
-  <g transform="translate(500, 160)">
-    <rect x="0" y="0" width="276" height="180" rx="10" fill="#161C28" stroke="#263147" stroke-width="1"/>
-    <text x="16" y="28" fill="#FFFFFF" font-size="13" font-weight="700">Commercial Intent Keywords</text>
+  <!-- Campaign Title -->
+  <text x="40" y="105" fill="#FFFFFF" font-family="'Outfit', sans-serif" font-size="28" font-weight="800" letter-spacing="-0.5">
+    Dr. Nivedha Aesthetics <tspan fill="url(#emeraldTextGrad)">· 185+ Monthly Consultations</tspan>
+  </text>
+  <text x="40" y="128" fill="#94A3B8" font-family="'Plus Jakarta Sans', sans-serif" font-size="13" font-weight="500">
+    Google Local 3-Pack SEO + High-Intent Search Ads + WhatsApp Automated Patient Booking
+  </text>
 
-    <text x="16" y="58" fill="#94A3B8" font-size="11">"Best Dermatologist Near Me"</text>
-    <text x="210" y="58" fill="#10B981" font-size="11" font-weight="700">#1 Google</text>
-    <rect x="16" y="65" width="244" height="6" rx="3" fill="#222B3D"/>
-    <rect x="16" y="65" width="244" height="6" rx="3" fill="#10B981"/>
+  <!-- 3 Clean KPI Cards Row -->
+  <g transform="translate(40, 155)">
+    <!-- KPI Card 1: Consultations -->
+    <rect x="0" y="0" width="226" height="110" rx="14" fill="url(#cardGradClinic)" stroke="rgba(16,185,129,0.3)" stroke-width="1.2"/>
+    <text x="20" y="32" fill="#94A3B8" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" font-weight="600" text-transform="uppercase" letter-spacing="1">Monthly Patients</text>
+    <text x="20" y="74" fill="url(#emeraldTextGrad)" font-family="'Outfit', sans-serif" font-size="34" font-weight="900">185+ / Mo</text>
+    <g transform="translate(20, 88)">
+      <rect x="0" y="0" width="102" height="16" rx="8" fill="rgba(16,185,129,0.18)"/>
+      <text x="8" y="12" fill="#10B981" font-family="'Outfit', sans-serif" font-size="10" font-weight="800">▲ +386% FROM 38/MO</text>
+    </g>
 
-    <text x="16" y="95" fill="#94A3B8" font-size="11">"HydraFacial Clinic Cost"</text>
-    <text x="210" y="95" fill="#10B981" font-size="11" font-weight="700">#1 Google</text>
-    <rect x="16" y="102" width="244" height="6" rx="3" fill="#222B3D"/>
-    <rect x="16" y="102" width="220" height="6" rx="3" fill="#2563EB"/>
+    <!-- KPI Card 2: CAC Reduction -->
+    <rect x="246" y="0" width="226" height="110" rx="14" fill="url(#cardGradClinic)" stroke="rgba(255,255,255,0.12)" stroke-width="1.2"/>
+    <text x="266" y="32" fill="#94A3B8" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" font-weight="600" text-transform="uppercase" letter-spacing="1">Cost Per Consultation</text>
+    <text x="266" y="74" fill="#FFFFFF" font-family="'Outfit', sans-serif" font-size="34" font-weight="900">-62.4%</text>
+    <g transform="translate(266, 88)">
+      <rect x="0" y="0" width="104" height="16" rx="8" fill="rgba(16,185,129,0.15)"/>
+      <text x="8" y="12" fill="#10B981" font-family="'Outfit', sans-serif" font-size="10" font-weight="800">▼ ₹1,850 ➔ ₹695 CAC</text>
+    </g>
 
-    <text x="16" y="132" fill="#94A3B8" font-size="11">"Acne Scar Laser Treatment"</text>
-    <text x="210" y="132" fill="#10B981" font-size="11" font-weight="700">#2 Google</text>
-    <rect x="16" y="139" width="244" height="6" rx="3" fill="#222B3D"/>
-    <rect x="16" y="139" width="195" height="6" rx="3" fill="#D4AF37"/>
-
-    <text x="16" y="165" fill="#F3E5AB" font-weight="700" font-size="11">WhatsApp AI Booking SLA: &lt; 30 Seconds</text>
+    <!-- KPI Card 3: Google Map Pack -->
+    <rect x="492" y="0" width="228" height="110" rx="14" fill="url(#cardGradClinic)" stroke="rgba(212,175,55,0.3)" stroke-width="1.2"/>
+    <text x="512" y="32" fill="#94A3B8" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" font-weight="600" text-transform="uppercase" letter-spacing="1">Local Search Authority</text>
+    <text x="512" y="74" fill="url(#goldTextGrad2)" font-family="'Outfit', sans-serif" font-size="34" font-weight="900">#1 Rank</text>
+    <g transform="translate(512, 88)">
+      <rect x="0" y="0" width="112" height="16" rx="8" fill="rgba(212,175,55,0.15)"/>
+      <text x="8" y="12" fill="#F3E5AB" font-family="'Outfit', sans-serif" font-size="10" font-weight="800">★ 4.9★ (320+ REVIEWS)</text>
+    </g>
   </g>
 
-  <!-- Live Search Campaigns Table -->
-  <g transform="translate(24, 355)">
-    <rect x="0" y="0" width="752" height="120" rx="10" fill="#161C28" stroke="#263147" stroke-width="1"/>
-    
-    <!-- Header -->
-    <rect x="0" y="0" width="752" height="32" rx="10" fill="#1F2839"/>
-    <text x="16" y="21" fill="#94A3B8" font-size="11" font-weight="700">CAMPAIGN / ASSET</text>
-    <text x="260" y="21" fill="#94A3B8" font-size="11" font-weight="700">INTENT LEVEL</text>
-    <text x="380" y="21" fill="#94A3B8" font-size="11" font-weight="700">IMPRESSIONS</text>
-    <text x="480" y="21" fill="#94A3B8" font-size="11" font-weight="700">PHONE CALLS</text>
-    <text x="590" y="21" fill="#94A3B8" font-size="11" font-weight="700">CAC PER APPT</text>
-    <text x="690" y="21" fill="#94A3B8" font-size="11" font-weight="700">STATUS</text>
+  <!-- Clean Chart Area -->
+  <g transform="translate(40, 285)">
+    <rect x="0" y="0" width="720" height="175" rx="14" fill="url(#cardGradClinic)" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
 
-    <!-- Row 1 -->
-    <text x="16" y="58" fill="#FFF" font-size="12" font-weight="600">Google_Search_Local_Laser_Aesthetic_HighTicket</text>
-    <text x="260" y="58" fill="#D4AF37" font-size="11" font-weight="700">Bottom of Funnel</text>
-    <text x="380" y="58" fill="#E2E8F0" font-size="12">14,280</text>
-    <text x="480" y="58" fill="#10B981" font-size="12" font-weight="700">410 Calls</text>
-    <text x="590" y="58" fill="#E2E8F0" font-size="12">₹390 / appt</text>
-    <text x="690" y="58" fill="#10B981" font-size="12" font-weight="800">● 100% SLA</text>
+    <!-- Chart Title -->
+    <text x="24" y="30" fill="#F8FAFC" font-family="'Outfit', sans-serif" font-size="14" font-weight="700">Monthly Confirmed Patient Bookings</text>
+    <text x="696" y="30" text-anchor="end" fill="#64748B" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" font-weight="600">Google Ads &amp; Maps GMB Insights</text>
 
-    <!-- Row 2 -->
-    <line x1="0" y1="75" x2="752" y2="75" stroke="#263147" stroke-width="1"/>
-    <text x="16" y="100" fill="#FFF" font-size="12" font-weight="600">Google_Maps_Promoted_Pin_Salem_CityWide</text>
-    <text x="260" y="100" fill="#60A5FA" font-size="11" font-weight="700">Map 3-Pack Local</text>
-    <text x="380" y="100" fill="#E2E8F0" font-size="12">28,500</text>
-    <text x="480" y="100" fill="#10B981" font-size="12" font-weight="700">620 Directions</text>
-    <text x="590" y="100" fill="#E2E8F0" font-size="12">₹210 / action</text>
-    <text x="690" y="100" fill="#10B981" font-size="12" font-weight="800">● Scaled</text>
+    <!-- Smooth Chart Area & Curve -->
+    <path d="M 30 145 Q 150 135 270 95 T 510 52 T 690 28 L 690 145 Z" fill="url(#clinicArea)"/>
+    <path d="M 30 145 Q 150 135 270 95 T 510 52 T 690 28" fill="none" stroke="url(#clinicCurve)" stroke-width="3.5" stroke-linecap="round"/>
+
+    <!-- Key Milestone Pulse Dots -->
+    <circle cx="30" cy="145" r="5" fill="#64748B" stroke="#FFFFFF" stroke-width="2"/>
+    <text x="45" y="138" fill="#94A3B8" font-family="'Outfit', sans-serif" font-size="11" font-weight="700">38</text>
+
+    <circle cx="270" cy="95" r="5" fill="#06B6D4" stroke="#FFFFFF" stroke-width="2"/>
+    <text x="270" y="80" text-anchor="middle" fill="#A7F3D0" font-family="'Outfit', sans-serif" font-size="11" font-weight="700">76 / mo</text>
+
+    <circle cx="510" cy="52" r="5" fill="#10B981" stroke="#FFFFFF" stroke-width="2"/>
+    <text x="510" y="38" text-anchor="middle" fill="#A7F3D0" font-family="'Outfit', sans-serif" font-size="11" font-weight="700">142 / mo</text>
+
+    <circle cx="690" cy="28" r="6" fill="#A7F3D0" stroke="#10B981" stroke-width="2.5"/>
+    <text x="680" y="16" text-anchor="end" fill="#A7F3D0" font-family="'Outfit', sans-serif" font-size="13" font-weight="800">185+ Capacity ✦</text>
+
+    <!-- Axis Labels -->
+    <line x1="30" y1="145" x2="690" y2="145" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+    <text x="30" y="162" fill="#64748B" font-family="'Plus Jakarta Sans', sans-serif" font-size="10">Baseline</text>
+    <text x="270" y="162" text-anchor="middle" fill="#64748B" font-family="'Plus Jakarta Sans', sans-serif" font-size="10">Month 2 (GMB 3-Pack Optimization)</text>
+    <text x="510" y="162" text-anchor="middle" fill="#64748B" font-family="'Plus Jakarta Sans', sans-serif" font-size="10">Month 4 (Search Intent PPC)</text>
+    <text x="690" y="162" text-anchor="end" fill="#10B981" font-family="'Plus Jakarta Sans', sans-serif" font-size="10" font-weight="700">Calendar Full ✦</text>
+  </g>
+
+  <!-- Clean Bottom Architecture Tags -->
+  <g transform="translate(40, 482)">
+    <text x="0" y="15" fill="#64748B" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" font-weight="600">STACK:</text>
+    <rect x="48" y="0" width="118" height="22" rx="11" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.12)"/>
+    <text x="107" y="15" text-anchor="middle" fill="#CBD5E1" font-family="'Outfit', sans-serif" font-size="10" font-weight="600">Google Local 3-Pack</text>
+
+    <rect x="174" y="0" width="118" height="22" rx="11" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.12)"/>
+    <text x="233" y="15" text-anchor="middle" fill="#CBD5E1" font-family="'Outfit', sans-serif" font-size="10" font-weight="600">Google Search PPC</text>
+
+    <rect x="300" y="0" width="138" height="22" rx="11" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.12)"/>
+    <text x="369" y="15" text-anchor="middle" fill="#CBD5E1" font-family="'Outfit', sans-serif" font-size="10" font-weight="600">WhatsApp Auto-Booking</text>
+
+    <rect x="446" y="0" width="108" height="22" rx="11" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.12)"/>
+    <text x="500" y="15" text-anchor="middle" fill="#CBD5E1" font-family="'Outfit', sans-serif" font-size="10" font-weight="600">5-Star Review Bot</text>
+
+    <text x="720" y="15" text-anchor="end" fill="#10B981" font-family="'Outfit', sans-serif" font-size="11" font-weight="700">VERIFIED ATTRIBUTION ✦</text>
   </g>
 </svg>
