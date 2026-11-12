@@ -1,0 +1,232 @@
+/* ==========================================================================
+   VYORA DIGITAL — KEYFRAME & SCROLL ANIMATION ENGINE
+   Hardware-accelerated CSS animations, scroll triggers & micro-interactions
+   ========================================================================== */
+
+/* 1. Scroll-Triggered Reveal Animations */
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(36px);
+  transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1), transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.scroll-reveal.in-view {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+.scroll-reveal-left {
+  opacity: 0;
+  transform: translateX(-40px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.scroll-reveal-left.in-view {
+  opacity: 1 !important;
+  transform: translateX(0) !important;
+}
+
+.scroll-reveal-right {
+  opacity: 0;
+  transform: translateX(40px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.scroll-reveal-right.in-view {
+  opacity: 1 !important;
+  transform: translateX(0) !important;
+}
+
+.scroll-reveal-scale {
+  opacity: 0;
+  transform: scale(0.92) translateY(20px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.scroll-reveal-scale.in-view {
+  opacity: 1 !important;
+  transform: scale(1) translateY(0) !important;
+}
+
+/* Stagger Delays for Grid Elements */
+.delay-1 { transition-delay: 0.08s !important; }
+.delay-2 { transition-delay: 0.16s !important; }
+.delay-3 { transition-delay: 0.24s !important; }
+.delay-4 { transition-delay: 0.32s !important; }
+.delay-5 { transition-delay: 0.40s !important; }
+.delay-6 { transition-delay: 0.48s !important; }
+
+/* 2. Top Header Slide Down */
+@keyframes headerSlideDown {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* 3. Button Specular Shine Effect */
+@keyframes buttonShine {
+  0%, 55% {
+    left: -75%;
+  }
+  100% {
+    left: 145%;
+  }
+}
+
+/* 4. Solid Gold Shimmer Sweep */
+@keyframes goldShimmer {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+/* 5. Dynamic Role Ticker Rotation */
+@keyframes rolesCycle {
+  0%, 15% {
+    transform: translateY(0);
+  }
+  20%, 35% {
+    transform: translateY(-1.4em);
+  }
+  40%, 55% {
+    transform: translateY(-2.8em);
+  }
+  60%, 75% {
+    transform: translateY(-4.2em);
+  }
+  80%, 95% {
+    transform: translateY(-5.6em);
+  }
+  100% {
+    transform: translateY(-7.0em);
+  }
+}
+
+/* 6. Continuous Circular Rotation (Badge & Orbit) */
+@keyframes spinClockwise {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes spinCounterClockwise {
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+/* 7. Floating Bobbing Motion */
+@keyframes floatBobbing {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+/* 8. Pulsing Glow Ring */
+@keyframes pulseGlow {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 0 10px rgba(212, 175, 55, 0);
+  }
+}
+
+/* 9. WhatsApp Pulse Animation */
+@keyframes waRingPulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.65), 0 12px 28px rgba(184, 134, 11, 0.35);
+  }
+  70% {
+    box-shadow: 0 0 0 18px rgba(212, 175, 55, 0), 0 12px 28px rgba(184, 134, 11, 0.35);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(212, 175, 55, 0), 0 12px 28px rgba(184, 134, 11, 0.35);
+  }
+}
+
+/* 10. Vertical Light Drop */
+@keyframes lightDropFlow {
+  0% {
+    top: -15%;
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.9;
+  }
+  80% {
+    opacity: 0.9;
+  }
+  100% {
+    top: 115%;
+    opacity: 0;
+  }
+}
+
+/* 11. Infinite Marquee Strips */
+@keyframes scrollMarqueeLeft {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes scrollMarqueeRight {
+  from {
+    transform: translateX(-50%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+/* 12. Mouse Wheel Bob */
+@keyframes mouseWheelBob {
+  0% {
+    opacity: 0;
+    transform: translateY(0);
+  }
+  30% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(11px);
+  }
+}
+
+/* Reduced Motion Override */
+@media (prefers-reduced-motion: reduce) {
+  .scroll-reveal,
+  .scroll-reveal-left,
+  .scroll-reveal-right,
+  .scroll-reveal-scale {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}

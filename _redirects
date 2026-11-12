@@ -1,0 +1,12 @@
+# Cloudflare Pages Redirects
+/home                         /                                301
+/services/seo                 /services/seo-authority.html     301
+/services/website-development /services/web-funnels.html       301
+/services/lead-generation     /services/crm-automation.html    301
+/services/video-editing       /services/video-vsl.html         301
+/services/ai                  /services/ai-solutions.html      301
+/privacy-policy               /privacy.html                    301
+/terms-and-conditions         /terms.html                      301
+/terms-of-service             /terms.html                      301
+/refund                       /refund-policy.html              301
+/cancellation-policy          /refund-policy.html              301

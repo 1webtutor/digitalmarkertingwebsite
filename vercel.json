@@ -1,0 +1,31 @@
+{
+  "version": 2,
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "headers": [
+    {
+      "source": "/data/(.*)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=0, must-revalidate" },
+        { "key": "Access-Control-Allow-Origin", "value": "*" }
+      ]
+    },
+    {
+      "source": "/assets/(.*)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+      ]
+    }
+  ],
+  "redirects": [
+    { "source": "/services/seo", "destination": "/services/seo-authority", "permanent": true },
+    { "source": "/services/website-development", "destination": "/services/web-funnels", "permanent": true },
+    { "source": "/services/lead-generation", "destination": "/services/crm-automation", "permanent": true },
+    { "source": "/services/video-editing", "destination": "/services/video-vsl", "permanent": true },
+    { "source": "/services/ai", "destination": "/services/ai-solutions", "permanent": true },
+    { "source": "/privacy-policy", "destination": "/privacy", "permanent": true },
+    { "source": "/terms-and-conditions", "destination": "/terms", "permanent": true },
+    { "source": "/terms-of-service", "destination": "/terms", "permanent": true },
+    { "source": "/refund", "destination": "/refund-policy", "permanent": true }
+  ]
+}

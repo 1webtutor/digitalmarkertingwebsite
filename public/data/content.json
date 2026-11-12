@@ -1,0 +1,242 @@
+{
+  "agency": {
+    "name": "Vyora Digital",
+    "domain": "vyoradigital.com",
+    "subtitle": "AI Growth & Digital Authority",
+    "tagline": "Build Visibility. Earn Authority. Accelerate Growth.",
+    "phone": "+91 89255 02557",
+    "phoneRaw": "918925502557",
+    "whatsapp": "918925502557",
+    "email": "hello@vyoradigital.com",
+    "address": "Krishna Nagar, Mamamgam, Salem - 636302",
+    "instagram": "https://www.instagram.com/vyora.ai_digitalgrowth",
+    "linkedin": "https://linkedin.com/company/vyoradigital"
+  },
+  "hero": {
+    "eyebrow": "AI Growth & Digital Authority",
+    "roles": [
+      "AI Growth Marketing",
+      "Meta Ads & Performance Media",
+      "Google Ads & Search Domination",
+      "SEO & Local Map-Pack Authority",
+      "High-Converting Funnel Architecture",
+      "WhatsApp & 24/7 AI Automation"
+    ],
+    "headlineL1": "Build Visibility.",
+    "headlineL2": "Earn Authority.",
+    "headlineL3": "Accelerate Growth.",
+    "lead": "We partner with ambitious founders, clinics, real estate firms and enterprise brands to build undeniable digital authority, dominate search intent, and turn traffic into predictable, compounding revenue.",
+    "ctaPrimary": "Claim Free Growth Audit",
+    "ctaSecondary": "Test Interactive Studio"
+  },
+  "stats": [
+    { "value": "3.8", "prefix": "", "suffix": "x", "label": "Average Client ROAS Across Paid Media" },
+    { "value": "180", "prefix": "", "suffix": "K+", "label": "Verified Inbound Leads Generated" },
+    { "value": "42", "prefix": "₹", "suffix": "Cr+", "label": "Client Pipeline & Revenue Influenced" },
+    { "value": "21", "prefix": "", "suffix": " Days", "label": "Average Kickoff to Live Campaign Deployment" }
+  ],
+  "blockers": [
+    {
+      "number": "01",
+      "title": "Low Online Visibility",
+      "desc": "Customers search for what you offer, but find competitors first on Google, Local Maps, and Social Feeds. You remain the best kept secret in your market.",
+      "fix": "Technical SEO, Google Maps 3-Pack authority, and strategic buyer-intent keyword capture."
+    },
+    {
+      "number": "02",
+      "title": "Inconsistent Enquiries",
+      "desc": "Some months are overflowing; others are silent. Without a predictable lead generation pipeline, scaling and hiring is dangerous guesswork.",
+      "fix": "High-converting Meta & Google Search ad funnels generating qualified, warm customer bookings on a fixed daily schedule."
+    },
+    {
+      "number": "03",
+      "title": "Unclear Marketing Direction",
+      "desc": "Fragmented agencies spending your budget on vanity metrics like impressions that never turn into closed deals or real revenue.",
+      "fix": "A unified, single-funnel growth architecture with end-to-end attribution, transparent reporting, and revenue accountability."
+    }
+  ],
+  "services": [
+    {
+      "id": "meta-ads",
+      "badge": "Paid Media",
+      "title": "Meta Ads (Facebook & Instagram)",
+      "desc": "Precision social advertising planned around your buyer psychology. High-converting creative testing loops, persuasive offer hooks, and advanced retargeting funnels.",
+      "tags": ["Audience Segmentation", "Creative Fatigue Defense", "Offer Hook Strategy", "Pixel CAPI"],
+      "cta": "Explore Meta Ads"
+    },
+    {
+      "id": "google-ads",
+      "badge": "High Intent",
+      "title": "Google Ads & Search Domination",
+      "desc": "Place your business at the top of Google the exact millisecond high-intent customers search for your solution. Strict negative matching, optimized Quality Scores, and Performance Max.",
+      "tags": ["Commercial Intent Keywords", "Ad Copy Split-Testing", "Negative Match Defense", "Performance Max"],
+      "cta": "Deploy Search Ads"
+    },
+    {
+      "id": "seo-authority",
+      "badge": "Organic Authority",
+      "title": "SEO & Google Maps 3-Pack",
+      "desc": "Build a compound foundation for being found organically. We optimize your Google Business Profile, fix technical site health, and rank you in the top 3 local map pack results.",
+      "tags": ["Google Maps 3-Pack", "Technical Core Web Vitals", "On-Page Schema Architecture", "High-DA Backlinks"],
+      "cta": "Claim Organic Ranks"
+    },
+    {
+      "id": "web-architecture",
+      "badge": "Core Foundation",
+      "featured": true,
+      "title": "High-Converting Websites & Funnels",
+      "desc": "Your website is the heart of your digital authority. We engineer bespoke, lightning-fast, mobile-optimized business websites and landing pages built from scratch for clarity, trust, and enquiry capture.",
+      "tags": ["Sub-Second Load Times", "Frictionless Lead Forms", "Mobile-First Conversion UX", "WhatsApp Direct Routing"],
+      "cta": "Preview In Growth Studio"
+    },
+    {
+      "id": "lead-pipelines",
+      "badge": "Pipeline Engine",
+      "title": "Lead Generation & CRM Systems",
+      "desc": "End-to-end systems that capture, qualify, and organize every inbound enquiry. Multi-step qualification forms that screen out tire-kickers and route ready-to-buy clients to your sales team.",
+      "tags": ["Lead Scoring & Qualification", "Google Sheets & CRM Sync", "Instant WhatsApp Alerts", "Attribution Tracking"],
+      "cta": "Set Up Lead Pipeline"
+    },
+    {
+      "id": "video-vsl",
+      "badge": "Creative Authority",
+      "title": "High-Retention Video & VSL Ads",
+      "desc": "Attention is the new currency. We script, produce, and edit short-form reels, client case study videos, and Video Sales Letters (VSLs) engineered to hook scrollers in the first 3 seconds.",
+      "tags": ["Scroll-Stopping Hooks", "Reels & Shorts Editing", "Motion Graphics", "VSL Funnels"],
+      "cta": "View Creative Packages"
+    },
+    {
+      "id": "ai-automation",
+      "badge": "AI Growth",
+      "title": "AI Solutions & WhatsApp Automation",
+      "desc": "Practical AI workflows that answer client questions 24/7 on WhatsApp, book appointments automatically while you sleep, and handle lead follow-ups without manual overhead.",
+      "tags": ["WhatsApp AI Concierge", "Automated Lead Nurture", "Appointment Booking Bot", "Workflow Integrations"],
+      "cta": "Automate Your Business"
+    }
+  ],
+  "framework": [
+    { "step": "01", "title": "Discover & Audit", "desc": "We dissect your unit economics, target buyers, competitor blindspots, and conversion bottlenecks." },
+    { "step": "02", "title": "Architect the Funnel", "desc": "Custom landing page wireframes, high-converting offer hooks, ad copy, and tracking pixels configured correctly." },
+    { "step": "03", "title": "Launch & Calibrate", "desc": "Rapid multi-variant testing across Meta Ads, Google Ads, and local search signals with zero wasted spend." },
+    { "step": "04", "title": "Scale & Automate", "desc": "Double down on winning creatives, deploy AI nurture agents, and turn predictable inquiries into compound revenue." }
+  ],
+  "caseStudies": [
+    {
+      "title": "Aura Luxury Villas",
+      "sector": "Real Estate · Ultra Luxury",
+      "roiBadge": "+310% Enquiries · 4.2x ROAS",
+      "image": "assets/images/work-01.webp",
+      "desc": "Bespoke architectural microsite, HNI Meta ads targeting, and automated WhatsApp site visit reservations. ₹14.8 Cr inventory sold.",
+      "metrics": [{ "val": "4.2x", "label": "ROAS" }, { "val": "₹14.8 Cr", "label": "Sold" }, { "val": "-48%", "label": "CPL" }],
+      "tags": ["Meta Ads", "Landing Page", "WhatsApp CRM"]
+    },
+    {
+      "title": "Novaderm Aesthetic Clinic",
+      "sector": "Healthcare · Dermatology",
+      "roiBadge": "185+ Monthly Bookings · -62% CAC",
+      "image": "assets/images/work-02.webp",
+      "desc": "High-speed patient acquisition landing page paired with local Google Search & Maps ads. 0.6s mobile load time.",
+      "metrics": [{ "val": "0.6s", "label": "Speed" }, { "val": "-62%", "label": "CAC" }, { "val": "#1 Rank", "label": "Maps" }],
+      "tags": ["Web Speed", "Google Ads", "Local SEO"]
+    },
+    {
+      "title": "Zenith Living DTC",
+      "sector": "E-Commerce · Home Décor",
+      "roiBadge": "₹48L Monthly Revenue · 4.8x ROAS",
+      "image": "assets/images/work-03.webp",
+      "desc": "Scaled a DTC brand from ₹4.5L/mo to ₹48L/mo in 90 days with rapid video creative testing and streamlined 1-click checkout.",
+      "metrics": [{ "val": "4.8x", "label": "ROAS" }, { "val": "10.6x", "label": "Scale" }, { "val": "24%", "label": "Recovery" }],
+      "tags": ["Video Ads", "Meta Scaling", "Shopify Funnel"]
+    }
+  ],
+  "testimonials": [
+    {
+      "quote": "Vyora rebuilt our landing page and ad funnels from scratch. Enquiries stopped being a trickle and our cost per booked site tour halved in four weeks. They are true growth partners.",
+      "author": "Rajiv Deshmukh",
+      "role": "Director, Horizon Realties",
+      "initials": "RD"
+    },
+    {
+      "quote": "We were invisible on Google Maps and spending money on agencies with zero accountability. Vyora got us to the top 3 on Google Search in 45 days. Our phones ring every single morning.",
+      "author": "Dr. Ananya Kapoor",
+      "role": "Founder, Novaderm Clinics",
+      "initials": "AK"
+    },
+    {
+      "quote": "The WhatsApp AI automation alone saves my team 15 hours every week. It pre-qualifies enquiries instantly and books consultations into our Google calendar while we sleep.",
+      "author": "Saurabh Mehta",
+      "role": "Managing Partner, Mehta Legal",
+      "initials": "SM"
+    }
+  ],
+  "packages": [
+    {
+      "id": "starter",
+      "name": "Starter Accelerator",
+      "subtitle": "Ideal for local businesses and professional practices seeking consistent monthly enquiries.",
+      "price": "₹35,000",
+      "duration": "/ month",
+      "featured": false,
+      "features": [
+        "Google Search Ads or Meta Ads Management",
+        "High-Converting Landing Page Optimization",
+        "Google Business Profile & Local SEO Setup",
+        "Direct WhatsApp Lead Routing",
+        "Bi-Weekly Performance Reporting Call"
+      ]
+    },
+    {
+      "id": "growth",
+      "name": "Growth Engine",
+      "subtitle": "Full-funnel acquisition for ambitious businesses ready to dominate their vertical.",
+      "price": "₹75,000",
+      "duration": "/ month",
+      "featured": true,
+      "features": [
+        "Omni-Channel: Meta Ads + Google Ads Search",
+        "Bespoke Sub-Second Custom Landing Page Rebuild",
+        "8x Monthly Custom Video Creatives & Ad Hooks",
+        "24/7 WhatsApp AI Lead Nurture Concierge",
+        "Live 24/7 Looker Studio ROI Dashboard",
+        "Weekly Strategy Sprint with Growth Director"
+      ]
+    },
+    {
+      "id": "domination",
+      "name": "Market Domination",
+      "subtitle": "Enterprise scale for multi-location clinics, large developers, and high-volume brands.",
+      "price": "₹1,50,000",
+      "duration": "/ month",
+      "featured": false,
+      "features": [
+        "Everything in Growth Engine + Unlimited Ad Spend scale",
+        "Full Multi-Page Website & Web App Architecture",
+        "20x Monthly Video Ads & Motion Assets",
+        "Advanced CRM Customization & Multi-Agent AI",
+        "Dedicated Senior Account Pod & Slack Channel"
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": "Do you guarantee specific lead volumes or revenue results?",
+      "answer": "No honest agency can guarantee exact revenue figures because market dynamics, your pricing, and your internal sales closing rates vary. However, we audit every variable upfront, build proven funnel architectures, test rigorously, and set realistic benchmarks so you have full visibility before launching."
+    },
+    {
+      "question": "How quickly will our campaigns and website go live?",
+      "answer": "Our average turnaround from discovery kickoff to active campaigns is 21 business days. This includes market research, custom landing page copy & design, video creative production, pixel attribution configuration, and final quality assurance."
+    },
+    {
+      "question": "Can you revamp or improve our existing website instead of starting from scratch?",
+      "answer": "Yes. During our discovery audit, we review your current site speed, mobile usability, and conversion rate. If your current foundation is solid, we can optimize existing pages and add conversion elements. If the codebase is slow and costing you ad revenue, we will show you the exact data and recommend an upgrade."
+    },
+    {
+      "question": "How does the WhatsApp AI Concierge work?",
+      "answer": "We train an automated conversational agent on your business services, pricing, availability, and FAQs. It is connected directly to your official WhatsApp Business API, answering leads within seconds 24/7, qualifying their requirements, and passing warm, ready-to-close appointments to your team."
+    },
+    {
+      "question": "How will we communicate and track ongoing progress?",
+      "answer": "You receive a dedicated private WhatsApp channel and direct access to your Growth Director. Furthermore, you get a 24/7 live Looker Studio dashboard tracking spend, leads, CAC, and conversions in real time, supplemented with scheduled strategy reviews."
+    }
+  ]
+}

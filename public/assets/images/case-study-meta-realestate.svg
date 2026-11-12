@@ -1,0 +1,143 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="100%" height="100%" style="background:#0D1117; font-family:'Outfit',-apple-system,sans-serif;">
+  <defs>
+    <linearGradient id="metaGold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F3E5AB"/>
+      <stop offset="50%" stop-color="#D4AF37"/>
+      <stop offset="100%" stop-color="#AA771C"/>
+    </linearGradient>
+    <linearGradient id="chartFill" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#D4AF37" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#D4AF37" stop-opacity="0.0"/>
+    </linearGradient>
+    <linearGradient id="barGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#4F46E5"/>
+      <stop offset="100%" stop-color="#818CF8"/>
+    </linearGradient>
+    <filter id="cardGlow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#000000" flood-opacity="0.6"/>
+    </filter>
+  </defs>
+
+  <!-- Window Frame -->
+  <rect x="0" y="0" width="800" height="500" fill="#0A0D14"/>
+  <rect x="0" y="0" width="800" height="42" fill="#141923" stroke="#222A38" stroke-width="1"/>
+  <circle cx="24" cy="21" r="5.5" fill="#EF4444"/>
+  <circle cx="42" cy="21" r="5.5" fill="#F59E0B"/>
+  <circle cx="60" cy="21" r="5.5" fill="#10B981"/>
+  
+  <text x="82" y="25" fill="#94A3B8" font-size="12" font-weight="600" letter-spacing="0.5">Meta Ads Manager · Aura Luxury Villas Campaign Dashboard (Verified CAPI)</text>
+  <rect x="660" y="10" width="120" height="22" rx="11" fill="rgba(16,185,129,0.15)" stroke="#10B981" stroke-width="1"/>
+  <circle cx="673" cy="21" r="3.5" fill="#10B981"/>
+  <text x="684" y="25" fill="#10B981" font-size="11" font-weight="700">● LIVE ACTIVE</text>
+
+  <!-- Metric KPI Cards Row -->
+  <g transform="translate(24, 60)">
+    <!-- KPI 1 -->
+    <rect x="0" y="0" width="176" height="84" rx="10" fill="#161C28" stroke="#263147" stroke-width="1"/>
+    <text x="16" y="26" fill="#94A3B8" font-size="11" font-weight="600" text-transform="uppercase" letter-spacing="0.5">Total Property Sales</text>
+    <text x="16" y="58" fill="url(#metaGold)" font-size="24" font-weight="800">₹14.8 Cr</text>
+    <text x="16" y="74" fill="#10B981" font-size="11" font-weight="700">↑ 310% vs Prior Qtr</text>
+
+    <!-- KPI 2 -->
+    <rect x="192" y="0" width="176" height="84" rx="10" fill="#161C28" stroke="#263147" stroke-width="1"/>
+    <text x="208" y="26" fill="#94A3B8" font-size="11" font-weight="600" text-transform="uppercase" letter-spacing="0.5">Blended ROAS</text>
+    <text x="208" y="58" fill="#FFFFFF" font-size="24" font-weight="800">4.20x</text>
+    <text x="208" y="74" fill="#10B981" font-size="11" font-weight="700">High-Intent HNI Traffic</text>
+
+    <!-- KPI 3 -->
+    <rect x="384" y="0" width="176" height="84" rx="10" fill="#161C28" stroke="#263147" stroke-width="1"/>
+    <text x="400" y="26" fill="#94A3B8" font-size="11" font-weight="600" text-transform="uppercase" letter-spacing="0.5">Site Visit Bookings</text>
+    <text x="400" y="58" fill="#F3E5AB" font-size="24" font-weight="800">85 Visits</text>
+    <text x="400" y="74" fill="#10B981" font-size="11" font-weight="700">Automated WhatsApp</text>
+
+    <!-- KPI 4 -->
+    <rect x="576" y="0" width="176" height="84" rx="10" fill="#161C28" stroke="#263147" stroke-width="1"/>
+    <text x="592" y="26" fill="#94A3B8" font-size="11" font-weight="600" text-transform="uppercase" letter-spacing="0.5">Cost Per Lead (CPL)</text>
+    <text x="592" y="58" fill="#FFFFFF" font-size="24" font-weight="800">-48.2%</text>
+    <text x="592" y="74" fill="#10B981" font-size="11" font-weight="700">Down from ₹8,200</text>
+  </g>
+
+  <!-- Performance Chart Area -->
+  <g transform="translate(24, 160)">
+    <rect x="0" y="0" width="460" height="180" rx="10" fill="#161C28" stroke="#263147" stroke-width="1"/>
+    <text x="18" y="28" fill="#FFFFFF" font-size="14" font-weight="700">Site Inquiries &amp; HNI Conversion Trajectory</text>
+    <text x="320" y="28" fill="#D4AF37" font-size="12" font-weight="700">● 90-Day Scaling Phase</text>
+    
+    <!-- Grid Lines -->
+    <line x1="20" y1="55" x2="440" y2="55" stroke="#263147" stroke-dasharray="3,3"/>
+    <line x1="20" y1="95" x2="440" y2="95" stroke="#263147" stroke-dasharray="3,3"/>
+    <line x1="20" y1="135" x2="440" y2="135" stroke="#263147" stroke-dasharray="3,3"/>
+
+    <!-- Chart Fill Area -->
+    <path d="M 25 150 Q 80 145 130 130 T 220 100 T 320 65 T 435 45 L 435 160 L 25 160 Z" fill="url(#chartFill)"/>
+    <!-- Chart Stroke -->
+    <path d="M 25 150 Q 80 145 130 130 T 220 100 T 320 65 T 435 45" fill="none" stroke="#D4AF37" stroke-width="3" stroke-linecap="round"/>
+
+    <!-- Points -->
+    <circle cx="130" cy="130" r="4" fill="#D4AF37" stroke="#0D1117" stroke-width="2"/>
+    <circle cx="220" cy="100" r="4" fill="#D4AF37" stroke="#0D1117" stroke-width="2"/>
+    <circle cx="320" cy="65" r="4" fill="#D4AF37" stroke="#0D1117" stroke-width="2"/>
+    <circle cx="435" cy="45" r="5" fill="#FFF" stroke="#D4AF37" stroke-width="2"/>
+
+    <!-- Months labels -->
+    <text x="25" y="172" fill="#64748B" font-size="10">Day 1 (Audit)</text>
+    <text x="130" y="172" fill="#64748B" font-size="10">Day 25</text>
+    <text x="220" y="172" fill="#64748B" font-size="10">Day 50</text>
+    <text x="320" y="172" fill="#64748B" font-size="10">Day 75</text>
+    <text x="400" y="172" fill="#D4AF37" font-weight="700" font-size="10">Day 90 (Peak)</text>
+  </g>
+
+  <!-- Funnel Breakdown Box -->
+  <g transform="translate(500, 160)">
+    <rect x="0" y="0" width="276" height="180" rx="10" fill="#161C28" stroke="#263147" stroke-width="1"/>
+    <text x="16" y="28" fill="#FFFFFF" font-size="13" font-weight="700">Acquisition Funnel Velocity</text>
+    
+    <text x="16" y="58" fill="#94A3B8" font-size="11">Meta Ad Reach (HNI)</text>
+    <text x="210" y="58" fill="#FFF" font-size="11" font-weight="700">1,240,000</text>
+    <rect x="16" y="65" width="244" height="6" rx="3" fill="#222B3D"/>
+    <rect x="16" y="65" width="244" height="6" rx="3" fill="#4F46E5"/>
+
+    <text x="16" y="95" fill="#94A3B8" font-size="11">Landing Page Sessions (&lt;0.8s)</text>
+    <text x="220" y="95" fill="#FFF" font-size="11" font-weight="700">48,200</text>
+    <rect x="16" y="102" width="244" height="6" rx="3" fill="#222B3D"/>
+    <rect x="16" y="102" width="180" height="6" rx="3" fill="#D4AF37"/>
+
+    <text x="16" y="132" fill="#94A3B8" font-size="11">WhatsApp Vetted Inquiries</text>
+    <text x="235" y="132" fill="#FFF" font-size="11" font-weight="700">850</text>
+    <rect x="16" y="139" width="244" height="6" rx="3" fill="#222B3D"/>
+    <rect x="16" y="139" width="110" height="6" rx="3" fill="#10B981"/>
+
+    <text x="16" y="165" fill="#D4AF37" font-weight="700" font-size="11">Executive Site Visits Booked: 85 (10% CVR)</text>
+  </g>
+
+  <!-- Live Ad Campaign Rows Table -->
+  <g transform="translate(24, 355)">
+    <rect x="0" y="0" width="752" height="120" rx="10" fill="#161C28" stroke="#263147" stroke-width="1"/>
+    
+    <!-- Table Header -->
+    <rect x="0" y="0" width="752" height="32" rx="10" fill="#1F2839"/>
+    <text x="16" y="21" fill="#94A3B8" font-size="11" font-weight="700">CAMPAIGN NAME</text>
+    <text x="260" y="21" fill="#94A3B8" font-size="11" font-weight="700">ATTRIBUTION</text>
+    <text x="380" y="21" fill="#94A3B8" font-size="11" font-weight="700">SPEND</text>
+    <text x="470" y="21" fill="#94A3B8" font-size="11" font-weight="700">CTR</text>
+    <text x="560" y="21" fill="#94A3B8" font-size="11" font-weight="700">QUALIFIED LEADS</text>
+    <text x="690" y="21" fill="#94A3B8" font-size="11" font-weight="700">ROAS</text>
+
+    <!-- Row 1 -->
+    <text x="16" y="58" fill="#FFF" font-size="12" font-weight="600">Aura_Luxury_Villas_CAPI_HNI_Advantage+</text>
+    <text x="260" y="58" fill="#10B981" font-size="11" font-weight="700">✓ Server-Side CAPI</text>
+    <text x="380" y="58" fill="#E2E8F0" font-size="12">₹1,85,400</text>
+    <text x="470" y="58" fill="#10B981" font-size="12" font-weight="700">3.84%</text>
+    <text x="560" y="58" fill="#E2E8F0" font-size="12">480 Inquiries</text>
+    <text x="690" y="58" fill="#D4AF37" font-size="13" font-weight="800">4.6x</text>
+
+    <!-- Row 2 -->
+    <line x1="0" y1="75" x2="752" y2="75" stroke="#263147" stroke-width="1"/>
+    <text x="16" y="100" fill="#FFF" font-size="12" font-weight="600">Aura_Retargeting_VSL_Walkthrough_Video</text>
+    <text x="260" y="100" fill="#10B981" font-size="11" font-weight="700">✓ 8-Sec Hook Matrix</text>
+    <text x="380" y="100" fill="#E2E8F0" font-size="12">₹1,66,600</text>
+    <text x="470" y="100" fill="#10B981" font-size="12" font-weight="700">4.12%</text>
+    <text x="560" y="100" fill="#E2E8F0" font-size="12">370 Inquiries</text>
+    <text x="690" y="100" fill="#D4AF37" font-size="13" font-weight="800">3.8x</text>
+  </g>
+</svg>

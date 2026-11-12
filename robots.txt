@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://vyoradigital.com/sitemap.xml

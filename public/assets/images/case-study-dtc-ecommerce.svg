@@ -1,0 +1,142 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="100%" height="100%" style="background:#0D1117; font-family:'Outfit',-apple-system,sans-serif;">
+  <defs>
+    <linearGradient id="dtcRose" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FB7185"/>
+      <stop offset="50%" stop-color="#E11D48"/>
+      <stop offset="100%" stop-color="#BE123C"/>
+    </linearGradient>
+    <linearGradient id="dtcGold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F3E5AB"/>
+      <stop offset="50%" stop-color="#D4AF37"/>
+      <stop offset="100%" stop-color="#AA771C"/>
+    </linearGradient>
+    <linearGradient id="dtcFill" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#E11D48" stop-opacity="0.32"/>
+      <stop offset="100%" stop-color="#E11D48" stop-opacity="0.0"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Frame -->
+  <rect x="0" y="0" width="800" height="500" fill="#0A0D14"/>
+  <rect x="0" y="0" width="800" height="42" fill="#141923" stroke="#222A38" stroke-width="1"/>
+  <circle cx="24" cy="21" r="5.5" fill="#EF4444"/>
+  <circle cx="42" cy="21" r="5.5" fill="#F59E0B"/>
+  <circle cx="60" cy="21" r="5.5" fill="#10B981"/>
+
+  <text x="82" y="25" fill="#94A3B8" font-size="12" font-weight="600" letter-spacing="0.5">Shopify Analytics &amp; Meta Omnichannel · Zenith Living DTC Scaling Dashboard</text>
+  <rect x="660" y="10" width="120" height="22" rx="11" fill="rgba(225,29,72,0.18)" stroke="#E11D48" stroke-width="1"/>
+  <circle cx="673" cy="21" r="3.5" fill="#E11D48"/>
+  <text x="684" y="25" fill="#FB7185" font-size="11" font-weight="700">● 10.6x SCALE</text>
+
+  <!-- Metric KPI Cards Row -->
+  <g transform="translate(24, 60)">
+    <!-- KPI 1 -->
+    <rect x="0" y="0" width="176" height="84" rx="10" fill="#161C28" stroke="#263147" stroke-width="1"/>
+    <text x="16" y="26" fill="#94A3B8" font-size="11" font-weight="600" text-transform="uppercase" letter-spacing="0.5">Monthly Revenue</text>
+    <text x="16" y="58" fill="url(#dtcRose)" font-size="24" font-weight="800">₹48.2 Lakhs</text>
+    <text x="16" y="74" fill="#10B981" font-size="11" font-weight="700">↑ 10.6x Scale (from ₹4.5L)</text>
+
+    <!-- KPI 2 -->
+    <rect x="192" y="0" width="176" height="84" rx="10" fill="#161C28" stroke="#263147" stroke-width="1"/>
+    <text x="208" y="26" fill="#94A3B8" font-size="11" font-weight="600" text-transform="uppercase" letter-spacing="0.5">Blended ROAS</text>
+    <text x="208" y="58" fill="url(#dtcGold)" font-size="24" font-weight="800">4.82x</text>
+    <text x="208" y="74" fill="#10B981" font-size="11" font-weight="700">Across Meta &amp; Google Ads</text>
+
+    <!-- KPI 3 -->
+    <rect x="384" y="0" width="176" height="84" rx="10" fill="#161C28" stroke="#263147" stroke-width="1"/>
+    <text x="400" y="26" fill="#94A3B8" font-size="11" font-weight="600" text-transform="uppercase" letter-spacing="0.5">Cart Recovery</text>
+    <text x="400" y="58" fill="#10B981" font-size="24" font-weight="800">24.2%</text>
+    <text x="400" y="74" fill="#10B981" font-size="11" font-weight="700">Automated WhatsApp Bot</text>
+
+    <!-- KPI 4 -->
+    <rect x="576" y="0" width="176" height="84" rx="10" fill="#161C28" stroke="#263147" stroke-width="1"/>
+    <text x="592" y="26" fill="#94A3B8" font-size="11" font-weight="600" text-transform="uppercase" letter-spacing="0.5">UGC Testing Matrix</text>
+    <text x="592" y="58" fill="#FFFFFF" font-size="24" font-weight="800">15 Ads / Wk</text>
+    <text x="592" y="74" fill="#10B981" font-size="11" font-weight="700">Zero Creative Fatigue</text>
+  </g>
+
+  <!-- DTC Revenue Growth Chart -->
+  <g transform="translate(24, 160)">
+    <rect x="0" y="0" width="460" height="180" rx="10" fill="#161C28" stroke="#263147" stroke-width="1"/>
+    <text x="18" y="28" fill="#FFFFFF" font-size="14" font-weight="700">DTC Store Monthly Gross Revenue Scaling Curve</text>
+    <text x="325" y="28" fill="#E11D48" font-size="12" font-weight="700">● 90-Day Sprint</text>
+    
+    <!-- Grid -->
+    <line x1="20" y1="55" x2="440" y2="55" stroke="#263147" stroke-dasharray="3,3"/>
+    <line x1="20" y1="95" x2="440" y2="95" stroke="#263147" stroke-dasharray="3,3"/>
+    <line x1="20" y1="135" x2="440" y2="135" stroke="#263147" stroke-dasharray="3,3"/>
+
+    <!-- Fill -->
+    <path d="M 25 152 Q 95 150 145 130 T 245 92 T 345 52 T 435 34 L 435 160 L 25 160 Z" fill="url(#dtcFill)"/>
+    <!-- Line -->
+    <path d="M 25 152 Q 95 150 145 130 T 245 92 T 345 52 T 435 34" fill="none" stroke="#E11D48" stroke-width="3" stroke-linecap="round"/>
+
+    <!-- Points -->
+    <circle cx="25" cy="152" r="4" fill="#E11D48"/>
+    <circle cx="145" cy="130" r="4" fill="#E11D48"/>
+    <circle cx="245" cy="92" r="4" fill="#E11D48"/>
+    <circle cx="345" cy="52" r="4" fill="#E11D48"/>
+    <circle cx="435" cy="34" r="5" fill="#FFF" stroke="#E11D48" stroke-width="2"/>
+
+    <!-- Labels -->
+    <text x="25" y="172" fill="#64748B" font-size="10">Baseline (₹4.5L)</text>
+    <text x="145" y="172" fill="#64748B" font-size="10">Sprint 1 (₹12L)</text>
+    <text x="245" y="172" fill="#64748B" font-size="10">Sprint 2 (₹28L)</text>
+    <text x="345" y="172" fill="#64748B" font-size="10">Sprint 3 (₹39L)</text>
+    <text x="390" y="172" fill="#FB7185" font-weight="700" font-size="10">Peak (₹48.2L)</text>
+  </g>
+
+  <!-- Video Creative Hooks Box -->
+  <g transform="translate(500, 160)">
+    <rect x="0" y="0" width="276" height="180" rx="10" fill="#161C28" stroke="#263147" stroke-width="1"/>
+    <text x="16" y="28" fill="#FFFFFF" font-size="13" font-weight="700">Creative Fatigue Defense</text>
+
+    <text x="16" y="58" fill="#94A3B8" font-size="11">Hook #03: "Don't buy luxury chairs before..."</text>
+    <text x="210" y="58" fill="#10B981" font-size="11" font-weight="700">5.4x ROAS</text>
+    <rect x="16" y="65" width="244" height="6" rx="3" fill="#222B3D"/>
+    <rect x="16" y="65" width="244" height="6" rx="3" fill="#E11D48"/>
+
+    <text x="16" y="95" fill="#94A3B8" font-size="11">Hook #07: UGC Living Room Transformation</text>
+    <text x="210" y="95" fill="#10B981" font-size="11" font-weight="700">4.8x ROAS</text>
+    <rect x="16" y="102" width="244" height="6" rx="3" fill="#222B3D"/>
+    <rect x="16" y="102" width="215" height="6" rx="3" fill="#D4AF37"/>
+
+    <text x="16" y="132" fill="#94A3B8" font-size="11">Hook #12: Direct Craftsmanship Teardown</text>
+    <text x="210" y="132" fill="#10B981" font-size="11" font-weight="700">4.1x ROAS</text>
+    <rect x="16" y="139" width="244" height="6" rx="3" fill="#222B3D"/>
+    <rect x="16" y="139" width="180" height="6" rx="3" fill="#4F46E5"/>
+
+    <text x="16" y="165" fill="#D4AF37" font-weight="700" font-size="11">Checkout Friction: 1-Click Fastlane (&lt;0.7s)</text>
+  </g>
+
+  <!-- Live Shopify / Meta Rows -->
+  <g transform="translate(24, 355)">
+    <rect x="0" y="0" width="752" height="120" rx="10" fill="#161C28" stroke="#263147" stroke-width="1"/>
+    
+    <!-- Header -->
+    <rect x="0" y="0" width="752" height="32" rx="10" fill="#1F2839"/>
+    <text x="16" y="21" fill="#94A3B8" font-size="11" font-weight="700">CAMPAIGN FORMAT</text>
+    <text x="260" y="21" fill="#94A3B8" font-size="11" font-weight="700">CHANNEL</text>
+    <text x="380" y="21" fill="#94A3B8" font-size="11" font-weight="700">AD SPEND</text>
+    <text x="480" y="21" fill="#94A3B8" font-size="11" font-weight="700">ORDERS</text>
+    <text x="580" y="21" fill="#94A3B8" font-size="11" font-weight="700">AOV</text>
+    <text x="690" y="21" fill="#94A3B8" font-size="11" font-weight="700">BLENDED ROAS</text>
+
+    <!-- Row 1 -->
+    <text x="16" y="58" fill="#FFF" font-size="12" font-weight="600">Zenith_Advantage+_DTC_Catalog_Sales</text>
+    <text x="260" y="58" fill="#E11D48" font-size="11" font-weight="700">Meta + IG Reels</text>
+    <text x="380" y="58" fill="#E2E8F0" font-size="12">₹5,40,000</text>
+    <text x="480" y="58" fill="#10B981" font-size="12" font-weight="700">780 Orders</text>
+    <text x="580" y="58" fill="#E2E8F0" font-size="12">₹3,450</text>
+    <text x="690" y="58" fill="#D4AF37" font-size="13" font-weight="800">5.1x</text>
+
+    <!-- Row 2 -->
+    <line x1="0" y1="75" x2="752" y2="75" stroke="#263147" stroke-width="1"/>
+    <text x="16" y="100" fill="#FFF" font-size="12" font-weight="600">Zenith_Google_PMax_HighIntent_BrandSearch</text>
+    <text x="260" y="100" fill="#60A5FA" font-size="11" font-weight="700">Google Performance Max</text>
+    <text x="380" y="100" fill="#E2E8F0" font-size="12">₹4,60,000</text>
+    <text x="480" y="100" fill="#10B981" font-size="12" font-weight="700">620 Orders</text>
+    <text x="580" y="100" fill="#E2E8F0" font-size="12">₹3,620</text>
+    <text x="690" y="100" fill="#D4AF37" font-size="13" font-weight="800">4.5x</text>
+  </g>
+</svg>
