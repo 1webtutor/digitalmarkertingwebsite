@@ -64,6 +64,8 @@ export default function RootLayout({
         <link rel="stylesheet" href="/assets/css/animations.css" />
         <link rel="stylesheet" href="/assets/css/style.css" />
         <link rel="stylesheet" href="/assets/css/interactive.css" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" async />
+        <script src="/assets/js/three-scene.js" defer />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
