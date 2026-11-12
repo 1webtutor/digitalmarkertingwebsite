@@ -1,24 +1,9 @@
 import type { Metadata } from 'next';
-import { Outfit, Plus_Jakarta_Sans } from 'next/font/google';
 import Script from 'next/script';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import WhatsAppFloat from '@/components/WhatsAppFloat';
 import BookingModal from '@/components/BookingModal';
-
-const outfit = Outfit({
-  subsets: ['latin'],
-  weight: ['400', '600', '700', '800', '900'],
-  variable: '--font-heading',
-  display: 'swap',
-});
-
-const plusJakartaSans = Plus_Jakarta_Sans({
-  subsets: ['latin'],
-  weight: ['400', '500', '600', '700'],
-  variable: '--font-body',
-  display: 'swap',
-});
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://vyoradigital.com'),
@@ -94,8 +79,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${outfit.variable} ${plusJakartaSans.variable}`}>
+    <html lang="en">
       <head>
+        {/* Preconnected Google Web Fonts with display=swap (Immune to webpack font loader errors) */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+          rel="stylesheet"
+        />
         <link rel="stylesheet" href="/assets/css/animations.css" />
         <link rel="stylesheet" href="/assets/css/style.css" />
         <link rel="stylesheet" href="/assets/css/interactive.css" />
