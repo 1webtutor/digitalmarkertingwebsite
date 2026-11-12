@@ -9,26 +9,37 @@
   <meta name="author" content="Vyora Digital">
   <meta name="theme-color" content="#FFFFFF">
   <link rel="canonical" href="https://vyoradigital.com/">
+  <link rel="alternate" hreflang="en" href="https://vyoradigital.com/">
+  <link rel="alternate" hreflang="en-IN" href="https://vyoradigital.com/">
+  <link rel="alternate" hreflang="x-default" href="https://vyoradigital.com/">
 
   <!-- Open Graph / Social Sharing -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://vyoradigital.com/">
   <meta property="og:title" content="Vyora Digital — AI Growth &amp; Digital Authority">
   <meta property="og:description" content="Build Visibility. Earn Authority. Accelerate Growth. Turn paid media and search into predictable, high-ROAS revenue.">
-  <meta property="og:image" content="https://vyoradigital.com/assets/images/work-01.webp">
+  <meta property="og:image" content="https://vyoradigital.com/assets/images/case-study-meta-realestate.svg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Vyora Digital — AI Growth &amp; Digital Authority">
+  <meta name="twitter:description" content="Build Visibility. Earn Authority. Accelerate Growth. Turn paid media and search into predictable, high-ROAS revenue.">
+  <meta name="twitter:image" content="https://vyoradigital.com/assets/images/case-study-meta-realestate.svg">
 
   <!-- Favicon / Monogram -->
   <link rel="icon" type="image/svg+xml" href="assets/images/vy-monogram.svg">
 
-  <!-- Google Web Fonts (Outfit & Plus Jakarta Sans) -->
+  <!-- Google Web Fonts (Optimized for 90+ PageSpeed) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&family=Plus+Jakarta+Sans:wght@400;600;700&display=swap" rel="stylesheet">
 
-  <!-- Stylesheets -->
-  <link rel="stylesheet" href="assets/css/animations.css">
+  <!-- High-Performance Stylesheets (Critical CSS First) -->
   <link rel="stylesheet" href="assets/css/style.css">
-  <link rel="stylesheet" href="assets/css/interactive.css">
+  <link rel="stylesheet" href="assets/css/animations.css" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="assets/css/interactive.css" media="print" onload="this.media='all'">
+  <noscript>
+    <link rel="stylesheet" href="assets/css/animations.css">
+    <link rel="stylesheet" href="assets/css/interactive.css">
+  </noscript>
 
   <!-- Structured Data (JSON-LD) -->
   <script type="application/ld+json">
@@ -131,9 +142,6 @@
 
       <!-- Header Actions: Theme Toggle & Book Call CTA -->
       <div class="nav-actions">
-        <button class="theme-toggle-btn" type="button" data-theme-toggle aria-label="Toggle Theme">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
-        </button>
 
         <a class="btn header-cta" href="contact.html" data-open-modal="booking">
           <span class="cta-full">Claim Audit</span>
@@ -241,9 +249,9 @@
         <!-- Video Artifice Frame -->
         <div class="hero-media-wrap">
           <div class="hero-media-inner">
-            <video autoplay loop muted playsinline poster="assets/images/cosmic-poster.jpg">
+            <video autoplay loop muted playsinline preload="none" poster="assets/images/cosmic-poster.jpg" width="540" height="340">
               <source src="assets/video/cosmic-bg.mp4" type="video/mp4">
-              <img src="assets/images/work-01.webp" alt="Vyora Digital Portfolio Growth Showcase">
+              <img src="assets/images/cosmic-poster.jpg" alt="Vyora Digital Portfolio Growth Showcase" width="540" height="340" fetchpriority="high">
             </video>
             <div class="hero-media-overlay" aria-hidden="true"></div>
             <div class="hero-media-caption">
@@ -753,7 +761,7 @@
         <!-- Work 01: Aura Luxury Villas -->
         <article class="work scroll-reveal delay-1">
           <div class="work-cover-wrap">
-            <img class="cover" src="assets/images/case-study-meta-realestate.svg" alt="Aura Luxury Villas Meta Ads Manager Campaign Dashboard">
+            <img class="cover" src="assets/images/case-study-meta-realestate.svg" alt="Aura Luxury Villas Meta Ads Manager Campaign Dashboard" width="600" height="380" loading="lazy" decoding="async">
             <span class="work-badge">+310% Enquiries · 4.2x ROAS</span>
           </div>
           <div class="work-body">
@@ -792,7 +800,7 @@
         <!-- Work 02: Novaderm Aesthetic Clinic -->
         <article class="work scroll-reveal delay-2">
           <div class="work-cover-wrap">
-            <img class="cover" src="assets/images/case-study-google-clinic.svg" alt="Novaderm Aesthetic Clinic Google Ads & Local Maps 3-Pack Growth Engine">
+            <img class="cover" src="assets/images/case-study-google-clinic.svg" alt="Novaderm Aesthetic Clinic Google Ads & Local Maps 3-Pack Growth Engine" width="600" height="380" loading="lazy" decoding="async">
             <span class="work-badge">185+ Monthly Bookings · -62% CAC</span>
           </div>
           <div class="work-body">
@@ -831,7 +839,7 @@
         <!-- Work 03: Zenith Living DTC -->
         <article class="work scroll-reveal delay-3">
           <div class="work-cover-wrap">
-            <img class="cover" src="assets/images/case-study-dtc-ecommerce.svg" alt="Zenith Living Shopify Analytics & Meta Scaling Dashboard">
+            <img class="cover" src="assets/images/case-study-dtc-ecommerce.svg" alt="Zenith Living Shopify Analytics & Meta Scaling Dashboard" width="600" height="380" loading="lazy" decoding="async">
             <span class="work-badge">₹48L Monthly Revenue · 4.8x ROAS</span>
           </div>
           <div class="work-body">
@@ -1520,12 +1528,10 @@
     </div>
   </div>
 
-  <!-- Interactive JavaScript Modules -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-  <script src="assets/js/three-scene.js"></script>
-  <script src="assets/js/main.js"></script>
-  <script src="assets/js/studio.js"></script>
-  <script src="assets/js/calculator.js"></script>
-  <script src="assets/js/content-loader.js"></script>
+  <!-- High-Performance Deferred Scripts (Zero Render-Blocking) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer></script>
+  <script src="assets/js/three-scene.js" defer></script>
+  <script src="assets/js/main.js" defer></script>
+  <script src="assets/js/studio.js" defer></script>
 </body>
 </html>

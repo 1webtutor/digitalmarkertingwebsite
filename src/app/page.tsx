@@ -141,9 +141,9 @@ export default function HomePage() {
             {/* Video Artifice Frame */}
             <div className="hero-media-wrap">
               <div className="hero-media-inner">
-                <video autoPlay loop muted playsInline poster="/assets/images/cosmic-poster.jpg">
+                <video autoPlay loop muted playsInline preload="none" poster="/assets/images/cosmic-poster.jpg" width={540} height={340}>
                   <source src="/assets/video/cosmic-bg.mp4" type="video/mp4" />
-                  <img src="/assets/images/work-01.webp" alt="Vyora Digital Portfolio Growth Showcase" />
+                  <img src="/assets/images/cosmic-poster.jpg" alt="Vyora Digital Portfolio Growth Showcase" width={540} height={340} fetchPriority="high" />
                 </video>
                 <div className="hero-media-overlay" aria-hidden="true" />
                 <div className="hero-media-caption">
@@ -461,7 +461,7 @@ export default function HomePage() {
             {/* Case Study 01: Real Estate (Meta CAPI & Reels) */}
             <article className="work">
               <div className="work-cover-wrap">
-                <img className="cover" src="/assets/images/case-study-meta-realestate.svg" alt="Meta Ads Manager Aura Luxury Villas Dashboard" />
+                <img className="cover" src="/assets/images/case-study-meta-realestate.svg" alt="Meta Ads Manager Aura Luxury Villas Dashboard" width={600} height={380} loading="lazy" decoding="async" />
                 <span className="work-badge">₹14.8 Cr Sold · 4.2x Meta ROAS</span>
               </div>
               <div className="work-body">
@@ -496,7 +496,7 @@ export default function HomePage() {
             {/* Case Study 02: Healthcare & Clinic (Google Ads & Local 3-Pack) */}
             <article className="work">
               <div className="work-cover-wrap">
-                <img className="cover" src="/assets/images/case-study-google-clinic.svg" alt="Google Ads & Maps 3-Pack Novaderm Aesthetic Clinic Dashboard" />
+                <img className="cover" src="/assets/images/case-study-google-clinic.svg" alt="Google Ads & Maps 3-Pack Novaderm Aesthetic Clinic Dashboard" width={600} height={380} loading="lazy" decoding="async" />
                 <span className="work-badge">185+ Monthly Bookings · -62% CAC</span>
               </div>
               <div className="work-body">
@@ -531,7 +531,7 @@ export default function HomePage() {
             {/* Case Study 03: E-Commerce (Shopify + Meta Advantage+ UGC) */}
             <article className="work">
               <div className="work-cover-wrap">
-                <img className="cover" src="/assets/images/case-study-dtc-ecommerce.svg" alt="Shopify Analytics & Meta Scaling Zenith Living Dashboard" />
+                <img className="cover" src="/assets/images/case-study-dtc-ecommerce.svg" alt="Shopify Analytics & Meta Scaling Zenith Living Dashboard" width={600} height={380} loading="lazy" decoding="async" />
                 <span className="work-badge">₹48.2L Monthly Revenue · 4.82x ROAS</span>
               </div>
               <div className="work-body">

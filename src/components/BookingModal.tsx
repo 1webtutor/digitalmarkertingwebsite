@@ -22,15 +22,35 @@ export default function BookingModal() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setSubmitted(true);
+
+    // 1. Post lead to /api/lead and Google Sheets in background
+    try {
+      fetch('/api/lead', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: formData.name,
+          phone: formData.phone,
+          budget: formData.budget,
+          service: formData.objective,
+          page: typeof window !== 'undefined' ? window.location.pathname : 'Homepage',
+          targetSheet: 'https://docs.google.com/spreadsheets/d/1kZpBSVbwHqxZuQpNBDKg4Eyg8Q3n4-GScuAa7iIgsVc/edit',
+          notificationEmail: 'getupramesh@gmail.com'
+        })
+      }).catch(() => {});
+    } catch (err) {
+      console.warn('Lead dispatch error', err);
+    }
+
     setTimeout(() => {
-      // Forward to WhatsApp with pre-filled message
+      // 2. Forward to WhatsApp with pre-filled message
       const text = encodeURIComponent(
         `Hi Vyora Digital team, I want to claim a 30-min growth diagnostic call.\nName: ${formData.name}\nPhone: ${formData.phone}\nMonthly Budget: ${formData.budget}\nGoal: ${formData.objective}`
       );
       window.open(`https://wa.me/918925502557?text=${text}`, '_blank');
       closeModal();
       setSubmitted(false);
-    }, 1200);
+    }, 800);
   };
 
   return (

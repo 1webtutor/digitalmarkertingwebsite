@@ -116,38 +116,11 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ==========================================================================
-  // 3. THEME CONTROLLER (DEFAULT: BRIGHT IVORY CREAM PER INSTRUCTION)
+  // 3. THEME (PERMANENT LUXURY LIGHT / METALLIC GOLD PALETTE)
   // ==========================================================================
-  const themeToggleBtns = document.querySelectorAll('[data-theme-toggle]');
-  const savedTheme = localStorage.getItem('vyora-theme') || 'light';
-
-  function applyTheme(theme) {
-    if (theme === 'dark') {
-      document.documentElement.setAttribute('data-theme', 'dark');
-      document.body.setAttribute('data-theme', 'dark');
-      themeToggleBtns.forEach((btn) => {
-        btn.innerHTML = `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>`;
-        btn.setAttribute('title', 'Switch to Bright Luxury Mode');
-      });
-    } else {
-      document.documentElement.removeAttribute('data-theme');
-      document.body.removeAttribute('data-theme');
-      themeToggleBtns.forEach((btn) => {
-        btn.innerHTML = `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>`;
-        btn.setAttribute('title', 'Switch to Dark Obsidian Mode');
-      });
-    }
-    localStorage.setItem('vyora-theme', theme);
-  }
-
-  applyTheme(savedTheme);
-
-  themeToggleBtns.forEach((btn) => {
-    btn.addEventListener('click', () => {
-      const current = document.body.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
-      applyTheme(current === 'dark' ? 'light' : 'dark');
-    });
-  });
+  document.documentElement.removeAttribute('data-theme');
+  document.body.removeAttribute('data-theme');
+  localStorage.setItem('vyora-theme', 'light');
 
   // ==========================================================================
   // 4. READING PROGRESS BAR & STICKY NAVBAR
@@ -263,6 +236,43 @@ document.addEventListener('DOMContentLoaded', () => {
   // ==========================================================================
   // 8. FORMS SUBMISSION HANDLERS
   // ==========================================================================
+  // ==========================================================================
+  // LEAD DISPATCHER: GOOGLE SHEET (1kZpBSVbwHqxZuQpNBDKg4Eyg8Q3n4-GScuAa7iIgsVc) + EMAIL (getupramesh@gmail.com) + WHATSAPP
+  // ==========================================================================
+  const GOOGLE_SHEET_WEBAPP_URL = window.VYORA_LEAD_ENDPOINT || '';
+
+  function dispatchLead(payload, whatsappText) {
+    // 1. Asynchronously send to Next.js API / Google Sheet Web App
+    try {
+      if (window.fetch) {
+        fetch('/api/lead', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        }).catch(() => {});
+
+        if (GOOGLE_SHEET_WEBAPP_URL) {
+          fetch(GOOGLE_SHEET_WEBAPP_URL, {
+            method: 'POST',
+            mode: 'no-cors',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload)
+          }).catch(() => {});
+        }
+      }
+    } catch (e) {
+      console.warn('Lead background sync error', e);
+    }
+
+    // 2. Immediate WhatsApp redirection with prefilled intent
+    const encoded = encodeURIComponent(whatsappText);
+    const waUrl = `https://wa.me/918925502557?text=${encoded}`;
+    setTimeout(() => {
+      window.open(waUrl, '_blank');
+    }, 500);
+  }
+
+  // Contact Form Submission
   const contactForm = document.getElementById('contactForm');
   if (contactForm) {
     contactForm.addEventListener('submit', (e) => {
@@ -271,11 +281,26 @@ document.addEventListener('DOMContentLoaded', () => {
       const originalText = submitBtn ? submitBtn.innerHTML : 'Submit Request';
       if (submitBtn) {
         submitBtn.disabled = true;
-        submitBtn.innerHTML = `<span>Transmitting Enquiry...</span>`;
+        submitBtn.innerHTML = `<span>Connecting to WhatsApp...</span>`;
       }
 
+      const name = (document.getElementById('cName') || contactForm.querySelector('[name="name"]') || {}).value || '';
+      const phone = (document.getElementById('cPhone') || contactForm.querySelector('[name="phone"]') || {}).value || '';
+      const email = (document.getElementById('cEmail') || contactForm.querySelector('[name="email"]') || {}).value || '';
+      const service = (document.getElementById('cService') || contactForm.querySelector('[name="service"]') || {}).value || 'Comprehensive Growth Consultation';
+      const budget = (document.getElementById('cBudget') || contactForm.querySelector('[name="budget"]') || {}).value || '';
+      const message = (document.getElementById('cMessage') || contactForm.querySelector('[name="message"]') || {}).value || '';
+
+      const payload = {
+        name, phone, email, service, budget, message,
+        page: window.location.pathname || 'Contact Page'
+      };
+
+      const waMsg = `Hi Vyora Digital team, I submitted an inquiry for ${service}.\nName: ${name}\nPhone: ${phone}\nEmail: ${email}\nBudget: ${budget}\nNotes: ${message}`;
+
+      dispatchLead(payload, waMsg);
+
       setTimeout(() => {
-        alert('Thank you! Your free growth audit request has been sent to Vyora Digital. Our Growth Director will contact you within 2 hours.');
         contactForm.reset();
         if (submitBtn) {
           submitBtn.disabled = false;
@@ -285,20 +310,82 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // Modal Booking Form Submission
   const modalForm = document.getElementById('modalBookingForm');
   if (modalForm) {
     modalForm.addEventListener('submit', (e) => {
       e.preventDefault();
       const submitBtn = modalForm.querySelector('button[type="submit"]');
-      if (submitBtn) submitBtn.disabled = true;
+      const originalText = submitBtn ? submitBtn.innerHTML : 'Confirm Discovery Call';
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = `<span>Connecting to WhatsApp...</span>`;
+      }
+
+      const name = (document.getElementById('modalName') || {}).value || '';
+      const phone = (document.getElementById('modalPhone') || {}).value || '';
+      const budget = (document.getElementById('modalBudget') || {}).value || '';
+
+      const payload = {
+        name: name,
+        phone: phone,
+        budget: budget,
+        service: '30-Min Discovery Diagnostic Call',
+        page: window.location.pathname || 'Homepage'
+      };
+
+      const waMsg = `Hi Vyora Digital team, I want to confirm our 30-min growth diagnostic call.\nName: ${name}\nPhone: ${phone}\nMonthly Ad Budget: ${budget}\nPage: ${window.location.pathname}`;
+
+      dispatchLead(payload, waMsg);
+
       setTimeout(() => {
-        alert('Discovery Call Confirmed! We have sent invitation details to your email and WhatsApp.');
         modalForm.reset();
         closeModal();
-        if (submitBtn) submitBtn.disabled = false;
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = originalText;
+        }
       }, 1000);
     });
   }
+
+  // Sidebar Audit Forms Submission (Service & Case Study pages)
+  const sidebarForms = document.querySelectorAll('#sidebarAuditForm, form[id*="sidebar"]');
+  sidebarForms.forEach((sForm) => {
+    sForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const submitBtn = sForm.querySelector('button[type="submit"]');
+      const originalText = submitBtn ? submitBtn.innerHTML : 'Submit';
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = `<span>Connecting to WhatsApp...</span>`;
+      }
+
+      const nameInput = sForm.querySelector('input[type="text"]');
+      const phoneInput = sForm.querySelector('input[type="tel"]');
+      const name = nameInput ? nameInput.value : '';
+      const phone = phoneInput ? phoneInput.value : '';
+
+      const payload = {
+        name: name,
+        phone: phone,
+        service: document.title.split('—')[0].trim() || 'Service Audit',
+        page: window.location.pathname
+      };
+
+      const waMsg = `Hi Vyora Digital team, I would like to request an audit for: ${payload.service}.\nName: ${name}\nPhone: ${phone}\nPage: ${window.location.pathname}`;
+
+      dispatchLead(payload, waMsg);
+
+      setTimeout(() => {
+        sForm.reset();
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = originalText;
+        }
+      }, 1000);
+    });
+  });
 
   // Back-to-Top
   const toTopBtn = document.querySelector('.totop');

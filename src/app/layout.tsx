@@ -1,8 +1,24 @@
 import type { Metadata } from 'next';
+import { Outfit, Plus_Jakarta_Sans } from 'next/font/google';
+import Script from 'next/script';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import WhatsAppFloat from '@/components/WhatsAppFloat';
 import BookingModal from '@/components/BookingModal';
+
+const outfit = Outfit({
+  subsets: ['latin'],
+  weight: ['400', '600', '700', '800', '900'],
+  variable: '--font-heading',
+  display: 'swap',
+});
+
+const plusJakartaSans = Plus_Jakarta_Sans({
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700'],
+  variable: '--font-body',
+  display: 'swap',
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://vyoradigital.com'),
@@ -25,6 +41,25 @@ export const metadata: Metadata = {
   authors: [{ name: 'Vyora Digital' }],
   creator: 'Vyora Digital',
   publisher: 'Vyora Digital',
+  alternates: {
+    canonical: 'https://vyoradigital.com/',
+    languages: {
+      'en': 'https://vyoradigital.com/',
+      'en-IN': 'https://vyoradigital.com/',
+      'x-default': 'https://vyoradigital.com/',
+    },
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
   icons: {
     icon: '/assets/images/vy-monogram.svg',
     shortcut: '/assets/images/vy-monogram.svg',
@@ -45,6 +80,12 @@ export const metadata: Metadata = {
       },
     ],
   },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Vyora Digital — AI Growth & Digital Authority',
+    description: 'Build Visibility. Earn Authority. Accelerate Growth. Delivering predictable, high-ROAS customer acquisition.',
+    images: ['/assets/images/case-study-meta-realestate.svg'],
+  },
 };
 
 export default function RootLayout({
@@ -53,19 +94,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" className={`${outfit.variable} ${plusJakartaSans.variable}`}>
       <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
-          rel="stylesheet"
-        />
         <link rel="stylesheet" href="/assets/css/animations.css" />
         <link rel="stylesheet" href="/assets/css/style.css" />
         <link rel="stylesheet" href="/assets/css/interactive.css" />
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" async />
-        <script src="/assets/js/three-scene.js" defer />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -98,6 +131,16 @@ export default function RootLayout({
         <main>{children}</main>
         <Footer />
         <BookingModal />
+
+        {/* High-Performance Lazy Loaded 3D Experience (Zero TBT impact) */}
+        <Script
+          src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"
+          strategy="lazyOnload"
+        />
+        <Script
+          src="/assets/js/three-scene.js"
+          strategy="lazyOnload"
+        />
       </body>
     </html>
   );
