@@ -287,7 +287,7 @@ export default function ServiceDetailPage({ params }: { params: { slug: string }
           </div>
 
           <aside className="subpage-sidebar">
-            <div className="card" style={{ padding: '30px', position: 'sticky', top: '100px' }}>
+            <div className="card" style={{ padding: '30px', marginBottom: '24px' }}>
               <h3 style={{ fontSize: '18px', fontWeight: 800, marginBottom: '16px' }}>Service Summary</h3>
               <div style={{ fontSize: '14px', lineHeight: 2 }}>
                 <div><strong>Category:</strong> {svc.eyebrow}</div>
@@ -301,6 +301,25 @@ export default function ServiceDetailPage({ params }: { params: { slug: string }
                   <span>Claim Strategy Session</span>
                 </Link>
               </div>
+            </div>
+
+            {/* Salem Headquarters Luxury Card */}
+            <div className="sidebar-card" style={{ background: '#FFFFFF', border: '2px solid rgba(212,175,55,0.35)', borderRadius: '20px', padding: '28px', boxShadow: '0 12px 30px -8px rgba(0,0,0,0.06)' }}>
+              <div className="eyebrow" style={{ color: 'var(--c-metallic-gold-dark)', marginBottom: '8px' }}>📍 Salem Headquarters</div>
+              <h4 style={{ fontFamily: 'var(--font-heading)', fontSize: '18px', fontWeight: 800, color: '#0F172A', marginBottom: '8px' }}>Direct Agency Access</h4>
+              <p style={{ fontSize: '13.5px', color: '#64748B', lineHeight: 1.6, marginBottom: '16px' }}>
+                Krishna Nagar, Mamamgam, Salem - 636302, Tamil Nadu, India.
+              </p>
+              <div style={{ background: 'rgba(212,175,55,0.08)', border: '1px solid rgba(212,175,55,0.25)', borderRadius: '12px', padding: '12px 16px', marginBottom: '16px' }}>
+                <div style={{ fontSize: '11px', fontWeight: 700, color: '#64748B', textTransform: 'uppercase' }}>Direct Line</div>
+                <a href="tel:+918925502557" style={{ color: '#0F172A', fontFamily: 'var(--font-heading)', fontWeight: 800, fontSize: '18px', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '8px', marginTop: '4px' }}>
+                  <span>📞</span> +91 89255 02557
+                </a>
+              </div>
+              <a href="https://wa.me/918925502557?text=Hi%20Vyora%20Digital%2C%20I%20would%20like%20to%20discuss%20our%20growth." target="_blank" rel="noopener noreferrer" className="btn" style={{ width: '100%', justifyContent: 'center', minHeight: '44px', fontSize: '13.5px' }}>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" style={{ marginRight: '6px' }}><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"></path><path d="M9.5 9.5c.3 1.6 1.4 3 3 3.8l.9-.9c.2-.2.5-.2.8-.1l1.3.6c.3.1.4.4.3.7-.3 1-1.2 1.6-2.2 1.4-3-.6-5.3-2.9-5.9-5.9-.2-1 .4-1.9 1.4-2.2.3-.1.6 0 .7.3l.6 1.3c.1.3.1.6-.1.8z"></path></svg>
+                <span>Chat on WhatsApp</span>
+              </a>
             </div>
           </aside>
         </div>

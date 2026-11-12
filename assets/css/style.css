@@ -2565,9 +2565,31 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .sidebar-card.gold-cta {
-  background: #08090C;
-  border-color: var(--c-metallic-gold);
-  color: #FFFFFF;
+  background: #FFFFFF;
+  border: 2px solid rgba(212, 175, 55, 0.35);
+  border-radius: 20px;
+  color: #0F172A;
+  box-shadow: 0 12px 30px -8px rgba(0, 0, 0, 0.06);
+}
+
+.sidebar-card.gold-cta .eyebrow {
+  color: var(--c-metallic-gold-dark) !important;
+  margin-bottom: 8px;
+}
+
+.sidebar-card.gold-cta h4 {
+  font-family: var(--font-heading);
+  font-size: 18px !important;
+  font-weight: 800;
+  color: #0F172A !important;
+  margin-bottom: 8px;
+}
+
+.sidebar-card.gold-cta p {
+  font-size: 13.5px !important;
+  color: #64748B !important;
+  line-height: 1.6;
+  margin-bottom: 16px;
 }
 
 .content-block h2 {

@@ -1,0 +1,38 @@
+# Cloudflare Pages Redirects for Vyora Digital
+
+# Canonical Service Redirects
+/services/meta-ads.html                 /services/meta-ads/                 301
+/services/google-ads.html               /services/google-ads/               301
+/services/seo-authority.html            /services/seo-authority/            301
+/services/web-funnels.html              /services/web-funnels/              301
+/services/crm-automation.html           /services/crm-automation/           301
+/services/video-vsl.html                /services/video-vsl/                301
+/services/ai-solutions.html             /services/ai-solutions/             301
+
+# Service Aliases
+/services/lead-generation               /services/crm-automation/           301
+/services/lead-generation.html          /services/crm-automation/           301
+/services/seo                           /services/seo-authority/            301
+/services/seo.html                      /services/seo-authority/            301
+/services/video-editing                 /services/video-vsl/                301
+/services/video-editing.html            /services/video-vsl/                301
+/services/website-development           /services/web-funnels/              301
+/services/website-development.html      /services/web-funnels/              301
+
+# Case Studies
+/case-studies/aesthetic-clinic.html     /case-studies/aesthetic-clinic/     301
+/case-studies/real-estate-luxury.html   /case-studies/real-estate-luxury/   301
+/case-studies/ecommerce-dtc.html        /case-studies/ecommerce-dtc/        301
+
+# Root Pages
+/about.html                             /about/                             301
+/services.html                          /services/                          301
+/case-studies.html                      /case-studies/                      301
+/pricing.html                           /pricing/                           301
+/reviews.html                           /reviews/                           301
+/framework.html                         /framework/                         301
+/faq.html                               /faq/                               301
+/contact.html                           /contact/                           301
+/privacy.html                           /privacy/                           301
+/terms.html                             /terms/                             301
+/refund-policy.html                     /refund-policy/                     301
